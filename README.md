@@ -2,14 +2,6 @@
 
 VulnSEER is a reproducibility artifact for LLM-guided exploitability analysis of vulnerable Java dependencies. Given a client project and a reachable vulnerable sink, VulnSEER builds code context from Joern CPGs, performs layer-wise exploit-goal inference, resolves an entry-level payload with an LLM, and validates the generated payload with a Java replay engine.
 
-The artifact follows the workflow used in the paper:
-
-1. Generate code-property graphs (CPGs) for Java client projects.
-2. Extract reachable entry-to-sink call chains.
-3. Train or load the context selector.
-4. Run the main payload-generation pipeline.
-5. Validate the generated payloads.
-
 ## Repository Structure
 
 ```text
