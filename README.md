@@ -1,6 +1,6 @@
 # VulnSEER
 
-VulnSEER is a reproducibility artifact for LLM-guided exploitability analysis of vulnerable Java dependencies. Given a client project and a reachable vulnerable sink, VulnSEER builds code context from Joern CPGs, performs layer-wise exploit-goal inference, resolves an entry-level payload with an LLM, and validates the generated payload with a Java replay engine.
+VulnSEER is an LLM-guided exploit state re-expression with exploit-relevant context selection framework for client-level exploit payload synthesis in Java projects with vulnerable third-party dependencies.
 
 ## Repository Structure
 
@@ -17,8 +17,6 @@ VulnSEER/
 Large generated artifacts, model checkpoints, logs, CPG binaries, and validation reports should be kept outside version control.
 
 ## Requirements
-
-We recommend Linux with a CUDA-capable GPU for selector training. Payload generation and validation can run on CPU, although LLM calls require an API-compatible endpoint.
 
 - Python 3.10 or 3.11
 - JDK 17
@@ -41,9 +39,6 @@ export JAVA_HOME=/path/to/jdk-17
 export PATH="$JAVA_HOME/bin:$PATH"
 export JOERN_HOME=/path/to/joern-cli
 export PATH="$JOERN_HOME:$PATH"
-
-# Select the GPU used for selector training.
-export CUDA_VISIBLE_DEVICES=0
 
 # Configure the LLM endpoint. Do not commit real keys.
 export OPENAI_API_KEY="YOUR_API_KEY"
