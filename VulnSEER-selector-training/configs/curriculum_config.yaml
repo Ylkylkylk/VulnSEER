@@ -1,0 +1,35 @@
+# configs/curriculum_config.yaml
+
+phases:
+  phase_1:
+    description: "One-Hop Warm-up (基础因果建立)"
+    max_steps: 30
+    mask_A0: false
+    lambda_cost: 0.02
+    r_progress_weight: 0.0
+    r_exclude_small_bonus: 0.0
+    high_value_prior: 0.10
+    redundant_include_penalty: 0.01
+    success_threshold: 0.4
+
+  phase_2:
+    description: "Noise & Efficiency Injection (抗噪与效率)"
+    max_steps: 60
+    mask_A0: false
+    lambda_cost: 0.05
+    r_progress_weight: 0.0
+    r_exclude_small_bonus: 0.01
+    high_value_prior: 0.08
+    redundant_include_penalty: 0.03
+    success_threshold: 0.5
+
+  phase_3:
+    description: "Deep Reasoning (深度推理与长链泛化)"
+    max_steps: 100
+    mask_A0: false
+    lambda_cost: 0.08
+    r_progress_weight: 0.0
+    r_exclude_small_bonus: 0.01
+    high_value_prior: 0.05
+    redundant_include_penalty: 0.05
+    success_threshold: null

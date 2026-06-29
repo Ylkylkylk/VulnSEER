@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+*.log.*
+*.tmp
+nohup.out
+tmp/
+temp/
+**/logs/
+**/tmp/
+**/temp/
+
+# Python / ML outputs
+output/
+outputs/
+results/*.tmp
+checkpoint*/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin.index.json
+
+# VulnSEER generated artifacts
+VulnSEER-main-pipeline/cpg-file/
+VulnSEER-main-pipeline/multi-chain-output*/
+VulnSEER-main-pipeline/output*/
+VulnSEER-main-pipeline/debug_prompts/
+VulnSEER-main-pipeline/tmp/
+VulnSEER-selector-training/output/
+VulnSEER-selector-training/tmp/
+VulnSEER-validation/output*/
+
+# Java / Maven
+target/
+*.class
+
+# Local backup folders
+*_backup_before_*/
+*_legacy_backups_moved_*/

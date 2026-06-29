@@ -1,0 +1,66 @@
+# configs/default_config.yaml
+
+model:
+  base_model_path: "Qwen3-8B-2"
+  max_context_length: 8192
+
+# solver_llm:
+#   model_name: "deepseek-chat"
+solver_llm:
+  model_name: "gpt-5.2"
+
+warmstart:
+  enabled: false
+  lr: 2.0e-5
+  batch_size: 2
+  max_samples: 1000
+
+lora:
+  r: 16
+  lora_alpha: 32
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  lora_dropout: 0.05
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+skyrl_ppo:
+  learning_rate: 5.0e-6
+  gamma: 0.99
+  lam: 0.95
+  clip_range: 0.1
+  entropy_coef: 0.005
+  vf_coef: 0.5
+  batch_size: 8
+  mini_batch_size: 2
+  epochs_per_step: 2
+  temperature: 0.3
+  invalid_action_penalty: 0.1
+  save_every_updates: 20
+  eval_every_updates: 20
+
+env_baseline:
+  cpg_path: "cpg-file/gerenciador-viagens-cpg.bin"
+  joern_bin: "joern"
+  max_success_reward: 8.0
+  fail_penalty: -3.0
+  max_steps: 100
+  success_score_threshold: 0.7
+
+reward:
+  lambda_cost: 0.06
+  r_slice_success: 0.08
+  r_context_fallback: -0.12
+  r_progress_weight: 0.0
+  r_exclude_small_bonus: 0.01
+
+  low_value_penalty: 0.25
+  high_value_prior: 0.08
+  redundant_include_penalty: 0.03
+  max_cost_penalty: 0.35
+
+paths:
+  output_root: "./output"
+  final_lora_dir: "./output/vulnseer_selector_lora_final"
+  interrupted_lora_dir: "./output/vulnseer_selector_lora_interrupted"
+  debug_prompt_dir: "./output/debug_prompts"
+  temp_dir: "./tmp"

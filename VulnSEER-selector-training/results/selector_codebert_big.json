@@ -1,0 +1,1292 @@
+{
+  "policy": "codebert",
+  "dataset": "data/dataset_test.json",
+  "selector_config": {
+    "base_model": null,
+    "lora_path": null,
+    "codebert_model_path": "./output/codebert_binary",
+    "codebert_threshold": 0.5,
+    "gpt_model_name": "gpt-5.2",
+    "gpt_base_url": null
+  },
+  "summary": {
+    "num_samples": 7,
+    "avg_payload_score": 0.514286,
+    "success_rate": 0.714286,
+    "avg_include_count": 0.571429,
+    "avg_exclude_count": 14.428571,
+    "avg_steps": 15.0,
+    "avg_elapsed_sec": 51.186271,
+    "low_value_include_rate": 0.0,
+    "fallback_include_rate": 0.0,
+    "external_avg_payload_score": 0.8,
+    "non_external_avg_payload_score": 0.4
+  },
+  "results": [
+    {
+      "sample_id": "case-015",
+      "project_id": "webbit",
+      "chain_length": 5,
+      "has_external_layer": false,
+      "num_decisions": 32,
+      "num_include": 1,
+      "num_exclude": 31,
+      "fallback_include_count": 0,
+      "low_value_include_count": 0,
+      "external_step_count": 0,
+      "payload_score": 0.7,
+      "is_payload_success": true,
+      "truncated": false,
+      "elapsed_sec": 72.8077,
+      "final_payload": {
+        "arg_values": {
+          "arg0": "SID"
+        },
+        "field_values": {
+          "this.headers": [
+            {
+              "key": "Cookie",
+              "value": "SID=abc; $Path=/; Max-Age=2147483648; SID=def; $Path=/admin; Max-Age=0"
+            }
+          ]
+        },
+        "description": "To satisfy the layer preconditions, cookieValue(name) must be invoked with a non-null cookie name that exists in the parsed cookie list returned by cookie(name). The request instance must also have a non-null headers list containing at least one entry whose key is exactly \"Cookie\"; the first such Cookie header’s value must be the malicious cookie header string. Using duplicate cookies with the same name (\"SID\") and conflicting attributes (notably differing $Path assignments) can cause the downstream CookieDecoder/parser to mis-associate attributes across cookie instances. This inconsistency can lead to an integer overflow when computing Max-Age for one of the cookies (e.g., parsing an extremely large Max-Age), causing getMaxAge() to return Integer.MIN_VALUE. By calling cookieValue(\"SID\"), the code retrieves the cookie via cookie(\"SID\") and returns cookie.getValue(), ensuring the vulnerable parsing path is exercised when cookies are decoded from the Cookie header."
+      },
+      "trace": [
+        {
+          "step": 1,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 2,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.HttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 3,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#uri",
+          "candidate_name": "uri",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 4,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#method",
+          "candidate_name": "method",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 5,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#headers",
+          "candidate_name": "headers",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 6,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#remoteAddress",
+          "candidate_name": "remoteAddress",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 7,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#id",
+          "candidate_name": "id",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 8,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#timestamp",
+          "candidate_name": "timestamp",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 9,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#body",
+          "candidate_name": "body",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 10,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.<init>:void(java.lang.String)",
+          "candidate_name": "<init>",
+          "candidate_source_type": "constructor",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 11,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_name": "List()",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 12,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.HttpRequest.cookies:java.util.List()",
+          "candidate_name": "List()",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 13,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#uri",
+          "candidate_name": "uri",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 14,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#method",
+          "candidate_name": "method",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 15,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#headers",
+          "candidate_name": "headers",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 16,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#remoteAddress",
+          "candidate_name": "remoteAddress",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 17,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#id",
+          "candidate_name": "id",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 18,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#timestamp",
+          "candidate_name": "timestamp",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 19,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#body",
+          "candidate_name": "body",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 20,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.<init>:void(java.lang.String)",
+          "candidate_name": "<init>",
+          "candidate_source_type": "constructor",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 21,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+          "candidate_name": "List)",
+          "candidate_source_type": "helper",
+          "action": 1,
+          "selection_mode": "slice",
+          "selected_text_preview": "public static List<HttpCookie> parse(List<String> headerValues) {\n        List<HttpCookie> result = new ArrayList<HttpCookie>();\n        for (String headerValue : headerValues) {\n            result.ad"
+        },
+        {
+          "step": 22,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.headers:java.util.List(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 23,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.HttpRequest.headers:java.util.List(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 24,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#uri",
+          "candidate_name": "uri",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 25,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#method",
+          "candidate_name": "method",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 26,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#headers",
+          "candidate_name": "headers",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 27,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#remoteAddress",
+          "candidate_name": "remoteAddress",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 28,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#id",
+          "candidate_name": "id",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 29,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#timestamp",
+          "candidate_name": "timestamp",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 30,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#body",
+          "candidate_name": "body",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 31,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.<init>:void(java.lang.String)",
+          "candidate_name": "<init>",
+          "candidate_source_type": "constructor",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 32,
+          "method": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+          "candidate_signature": "org.webbitserver.helpers.InboundCookieParser.toHttpCookie:java.util.List(java.util.Set)",
+          "candidate_name": "toHttpCookie",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        }
+      ]
+    },
+    {
+      "sample_id": "case-016",
+      "project_id": "webbit",
+      "chain_length": 6,
+      "has_external_layer": false,
+      "num_decisions": 37,
+      "num_include": 1,
+      "num_exclude": 36,
+      "fallback_include_count": 0,
+      "low_value_include_count": 0,
+      "external_step_count": 0,
+      "payload_score": 0.7,
+      "is_payload_success": true,
+      "truncated": false,
+      "elapsed_sec": 41.4112,
+      "final_payload": {
+        "arg_values": {
+          "arg0": "SID"
+        },
+        "field_values": {
+          "this.request": "org.webbitserver.stub.StubHttpRequest@NON_NULL",
+          "this.request.headers": [
+            {
+              "key": "Cookie",
+              "value": "SID=one; $Path=/; Max-Age=2147483648; SID=two; $Path=/admin; Max-Age=2147483648"
+            }
+          ],
+          "this.headers": [
+            {
+              "key": "Cookie",
+              "value": "SID=one; $Path=/; Max-Age=2147483648; SID=two; $Path=/admin; Max-Age=2147483648"
+            }
+          ]
+        },
+        "description": "HttpRequestWrapper.cookieValue(name) is a pure delegate: it returns this.request.cookieValue(name). To satisfy the layer goal and propagate the sink requirement to the downstream cookie decoder, this.request must be a non-null org.webbitserver.stub.StubHttpRequest whose headers list contains a Cookie header with a crafted cookie header string. The crafted Cookie header includes multiple cookie definitions using the same cookie name but with conflicting attribute-like tokens (e.g., $Path) so that the downstream InboundCookieParser/CookieDecoder mis-associates attributes across duplicates. This parsing inconsistency drives the decoder into an integer overflow path when interpreting Max-Age-like data, ultimately producing Integer.MIN_VALUE from getMaxAge(). The method parameter 'name' must be non-null and equal to the duplicated cookie name so that request.cookieValue(name) selects one of the parsed HttpCookie objects with getName() == name, ensuring the maliciously-parsed cookie is actually looked up and returned/used."
+      },
+      "trace": [
+        {
+          "step": 1,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.HttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 2,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.netty.NettyHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 3,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 4,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.wrapper.HttpRequestWrapper.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 5,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.wrapper.HttpRequestWrapper.cookieValue:java.lang.String(java.lang.String)#request",
+          "candidate_name": "request",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 6,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 7,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.HttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 8,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#uri",
+          "candidate_name": "uri",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 9,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#method",
+          "candidate_name": "method",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 10,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#headers",
+          "candidate_name": "headers",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 11,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#remoteAddress",
+          "candidate_name": "remoteAddress",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 12,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#id",
+          "candidate_name": "id",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 13,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#timestamp",
+          "candidate_name": "timestamp",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 14,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)#body",
+          "candidate_name": "body",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 15,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.<init>:void(java.lang.String)",
+          "candidate_name": "<init>",
+          "candidate_source_type": "constructor",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 16,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_name": "List()",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 17,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.HttpRequest.cookies:java.util.List()",
+          "candidate_name": "List()",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 18,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#uri",
+          "candidate_name": "uri",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 19,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#method",
+          "candidate_name": "method",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 20,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#headers",
+          "candidate_name": "headers",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 21,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#remoteAddress",
+          "candidate_name": "remoteAddress",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 22,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#id",
+          "candidate_name": "id",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 23,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#timestamp",
+          "candidate_name": "timestamp",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 24,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)#body",
+          "candidate_name": "body",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 25,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.<init>:void(java.lang.String)",
+          "candidate_name": "<init>",
+          "candidate_source_type": "constructor",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 26,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+          "candidate_name": "List)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 27,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.headers:java.util.List(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 1,
+          "selection_mode": "slice",
+          "selected_text_preview": "@Override\n    public List<String> headers(String name) {\n        List<String> result = new ArrayList<String>();\n        for (Map.Entry<String, String> header : headers) {\n            if (header.getKey"
+        },
+        {
+          "step": 28,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.HttpRequest.headers:java.util.List(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 29,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#uri",
+          "candidate_name": "uri",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 30,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#method",
+          "candidate_name": "method",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 31,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#headers",
+          "candidate_name": "headers",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 32,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#remoteAddress",
+          "candidate_name": "remoteAddress",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 33,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#id",
+          "candidate_name": "id",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 34,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#timestamp",
+          "candidate_name": "timestamp",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 35,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#body",
+          "candidate_name": "body",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 36,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.<init>:void(java.lang.String)",
+          "candidate_name": "<init>",
+          "candidate_source_type": "constructor",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 37,
+          "method": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+          "candidate_signature": "org.webbitserver.helpers.InboundCookieParser.toHttpCookie:java.util.List(java.util.Set)",
+          "candidate_name": "toHttpCookie",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        }
+      ]
+    },
+    {
+      "sample_id": "case-018",
+      "project_id": "adu-test",
+      "chain_length": 4,
+      "has_external_layer": true,
+      "num_decisions": 1,
+      "num_include": 0,
+      "num_exclude": 1,
+      "fallback_include_count": 0,
+      "low_value_include_count": 0,
+      "external_step_count": 0,
+      "payload_score": 0.85,
+      "is_payload_success": true,
+      "truncated": false,
+      "elapsed_sec": 57.0923,
+      "final_payload": {
+        "arg_values": {
+          "arg0": "org.apache.http.client.methods.HttpGet(\"http://user:pa@ss@victim.example:8080/path?x=1\")",
+          "arg1": "null"
+        },
+        "field_values": {
+          "httpClient": "new org.apache.http.impl.client.DefaultHttpClient()",
+          "logger": "org.slf4j.LoggerFactory.getLogger(com.adu.utils.SimpleHttpClientUtil.class)"
+        },
+        "description": "To satisfy this layer’s preconditions and preserve the sink-level constraint, we supply an HttpUriRequest whose getURI() returns a URI whose user-info contains an extra '@'. This creates an ambiguous authority section (user-info vs host delimiter) that can later be misparsed by Apache HttpClient URIUtils.extractHost() / HttpHost parsing logic, potentially yielding a null/incorrect host. In this method, that crafted URI is propagated to request.getURI() (used in the warning log path) and is also the URI used by httpClient.execute(request, context), thereby ensuring downstream target-determination logic sees the malicious authority string. The context is set to null (allowed by constraints) and charset is assumed to be a valid non-null encoding (UTF-8 per template)."
+      },
+      "trace": [
+        {
+          "step": 1,
+          "method": "com.adu.utils.SimpleHttpClientUtil.httpExecute:java.lang.String(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext,java.lang.String)",
+          "candidate_signature": "com.adu.utils.SimpleHttpClientUtil.httpExecute:java.lang.String(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext,java.lang.String)#httpClient",
+          "candidate_name": "httpClient",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        }
+      ]
+    },
+    {
+      "sample_id": "case-048",
+      "project_id": "wechat-ssm",
+      "chain_length": 5,
+      "has_external_layer": false,
+      "num_decisions": 14,
+      "num_include": 0,
+      "num_exclude": 14,
+      "fallback_include_count": 0,
+      "low_value_include_count": 0,
+      "external_step_count": 0,
+      "payload_score": 0.0,
+      "is_payload_success": false,
+      "truncated": false,
+      "elapsed_sec": 74.5299,
+      "final_payload": {
+        "arg_values": {
+          "arg0": [
+            "ignored"
+          ]
+        },
+        "field_values": {},
+        "description": "Cannot satisfy the layer template’s preconditions with the provided method body. In cn.qs.utils.weixin.auth.WeixinJSAPISignUtils.main(String[]), the args parameter is never read (args[0] is not accessed) and is not passed to WeixinInterfaceUtils.getJsapiTicket(); instead, getJsapiTicket() is invoked with no arguments. Therefore, no concrete value for args[0] (including a FastJSON '@type' payload) can influence execution in this layer, and the stated precondition 'args[0] must be a valid string that when passed to WeixinInterfaceUtils.getJsapiTicket()...' is inconsistent with the actual call site. To proceed toward the FastJSON auto-type JSON-string sink-level constraint, we need the source/signature of WeixinInterfaceUtils.getJsapiTicket() and/or the downstream deserialization sink that consumes a JSON string, because this main() method does not accept or forward any attacker-controlled JSON input."
+      },
+      "trace": [
+        {
+          "step": 1,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.isExpiredJsapiTicket:boolean()",
+          "candidate_name": "isExpiredJsapiTicket",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 2,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()#ACCESS_TOKEN_URL",
+          "candidate_name": "ACCESS_TOKEN_URL",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 3,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()#JSAPI_TICKET_URL",
+          "candidate_name": "JSAPI_TICKET_URL",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 4,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()#accessToken",
+          "candidate_name": "accessToken",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 5,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()#lastGetAccessTokenTime",
+          "candidate_name": "lastGetAccessTokenTime",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 6,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()#jsapiTicket",
+          "candidate_name": "jsapiTicket",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 7,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()#lastGetJsapiTicketTime",
+          "candidate_name": "lastGetJsapiTicketTime",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 8,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.isExpiredAccessToken:boolean()",
+          "candidate_name": "isExpiredAccessToken",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 9,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()#ACCESS_TOKEN_URL",
+          "candidate_name": "ACCESS_TOKEN_URL",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 10,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()#JSAPI_TICKET_URL",
+          "candidate_name": "JSAPI_TICKET_URL",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 11,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()#accessToken",
+          "candidate_name": "accessToken",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 12,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()#lastGetAccessTokenTime",
+          "candidate_name": "lastGetAccessTokenTime",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 13,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()#jsapiTicket",
+          "candidate_name": "jsapiTicket",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 14,
+          "method": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+          "candidate_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()#lastGetJsapiTicketTime",
+          "candidate_name": "lastGetJsapiTicketTime",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        }
+      ]
+    },
+    {
+      "sample_id": "case-002",
+      "project_id": "neo",
+      "chain_length": 4,
+      "has_external_layer": true,
+      "num_decisions": 2,
+      "num_include": 1,
+      "num_exclude": 1,
+      "fallback_include_count": 0,
+      "low_value_include_count": 0,
+      "external_step_count": 0,
+      "payload_score": 0.75,
+      "is_payload_success": true,
+      "truncated": false,
+      "elapsed_sec": 60.6426,
+      "final_payload": {
+        "arg_values": {},
+        "field_values": {
+          "folder": [
+            "\\\\127.0.0.1\\share\\..\\..\\..\\Windows\\System32\\drivers\\etc\\hosts"
+          ]
+        },
+        "description": "The method InstallTemplate.run() itself takes no parameters; it just calls execute() and, on IOException, prints \"Unable to install template: \" + folder.get(0). To satisfy the layer goal preconditions for the downstream vulnerable sink (FilenameUtils.normalize), the instance field 'folder' must be a List<String> with exactly one element, and that element must be a Windows UNC path that includes directory traversal segments (..\\) which can cause FilenameUtils.normalize to return null (a known edge case for UNC + traversal). A concrete payload is a UNC path starting with \\\\HOST\\share followed by repeated '..\\\\' segments; this can bypass normalization/validation logic and yield a null normalization result, enabling subsequent path traversal issues if null is mishandled."
+      },
+      "trace": [
+        {
+          "step": 1,
+          "method": "com.sangupta.neo.commands.InstallTemplate.run:void()",
+          "candidate_signature": "com.sangupta.neo.commands.InstallTemplate.run:void()#folder",
+          "candidate_name": "folder",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 2,
+          "method": "com.sangupta.neo.commands.InstallTemplate.execute:void()",
+          "candidate_signature": "com.sangupta.neo.commands.InstallTemplate.execute:void()#folder",
+          "candidate_name": "folder",
+          "candidate_source_type": "field",
+          "action": 1,
+          "selection_mode": "slice",
+          "selected_text_preview": "if(folder.size() > 1) {\n            System.out.println(\"A template can only installed from one folder at a time.\");\n        // check if the folder exists or not\n        File templateDir = FileUtils.re"
+        }
+      ]
+    },
+    {
+      "sample_id": "case-008",
+      "project_id": "webbit",
+      "chain_length": 4,
+      "has_external_layer": false,
+      "num_decisions": 17,
+      "num_include": 1,
+      "num_exclude": 16,
+      "fallback_include_count": 0,
+      "low_value_include_count": 0,
+      "external_step_count": 0,
+      "payload_score": 0.6,
+      "is_payload_success": true,
+      "truncated": false,
+      "elapsed_sec": 25.4722,
+      "final_payload": {
+        "arg_values": {},
+        "field_values": {
+          "this.request": {
+            "@type": "org.webbitserver.stub.StubHttpRequest",
+            "headers": [
+              {
+                "key": "Cookie",
+                "value": "sid=AAAA; $Path=/; Max-Age=2147483647, sid=BBBB; $Path=/admin; Max-Age=2147483648"
+              }
+            ]
+          },
+          "this.headers": [
+            {
+              "key": "Cookie",
+              "value": "sid=AAAA; $Path=/; Max-Age=2147483647, sid=BBBB; $Path=/admin; Max-Age=2147483648"
+            }
+          ]
+        },
+        "description": "The wrapper method org.webbitserver.wrapper.HttpRequestWrapper.cookies() is a simple delegate that returns this.request.cookies(). To satisfy the layer goal and propagate the malicious cookie header into the underlying cookie parser/decoder, the only necessary setup is to ensure this.request is a org.webbitserver.stub.StubHttpRequest whose headers list contains a \"Cookie\" entry. That Cookie header value is crafted to include multiple cookie definitions with the same name (\"sid\") and conflicting attribute assignments (e.g., $Path and Max-Age). This duplication/attribute confusion is intended to trigger inconsistent parsing in the downstream CookieDecoder such that getMaxAge() overflows and yields Integer.MIN_VALUE. When cookies() is invoked, the StubHttpRequest implementation will read the Cookie header and pass it to the decoder, exercising the vulnerable parsing logic."
+      },
+      "trace": [
+        {
+          "step": 1,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.HttpRequest.cookies:java.util.List()",
+          "candidate_name": "List()",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 2,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.netty.NettyHttpRequest.cookies:java.util.List()",
+          "candidate_name": "List()",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 3,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_name": "List()",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 4,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.wrapper.HttpRequestWrapper.cookies:java.util.List()",
+          "candidate_name": "List()",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 5,
+          "method": "org.webbitserver.wrapper.HttpRequestWrapper.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.wrapper.HttpRequestWrapper.cookies:java.util.List()#request",
+          "candidate_name": "request",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 6,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+          "candidate_name": "List)",
+          "candidate_source_type": "helper",
+          "action": 1,
+          "selection_mode": "slice",
+          "selected_text_preview": "public static List<HttpCookie> parse(List<String> headerValues) {\n        List<HttpCookie> result = new ArrayList<HttpCookie>();\n        for (String headerValue : headerValues) {\n            result.ad"
+        },
+        {
+          "step": 7,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.headers:java.util.List(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 8,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.HttpRequest.headers:java.util.List(java.lang.String)",
+          "candidate_name": "String)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 9,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#uri",
+          "candidate_name": "uri",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 10,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#method",
+          "candidate_name": "method",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 11,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#headers",
+          "candidate_name": "headers",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 12,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#remoteAddress",
+          "candidate_name": "remoteAddress",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 13,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#id",
+          "candidate_name": "id",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 14,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#timestamp",
+          "candidate_name": "timestamp",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 15,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()#body",
+          "candidate_name": "body",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 16,
+          "method": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+          "candidate_signature": "org.webbitserver.stub.StubHttpRequest.<init>:void(java.lang.String)",
+          "candidate_name": "<init>",
+          "candidate_source_type": "constructor",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 17,
+          "method": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+          "candidate_signature": "org.webbitserver.helpers.InboundCookieParser.toHttpCookie:java.util.List(java.util.Set)",
+          "candidate_name": "toHttpCookie",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        }
+      ]
+    },
+    {
+      "sample_id": "case-041",
+      "project_id": "wechat-ssm",
+      "chain_length": 3,
+      "has_external_layer": false,
+      "num_decisions": 2,
+      "num_include": 0,
+      "num_exclude": 2,
+      "fallback_include_count": 0,
+      "low_value_include_count": 0,
+      "external_step_count": 0,
+      "payload_score": 0.0,
+      "is_payload_success": false,
+      "truncated": false,
+      "elapsed_sec": 26.348,
+      "final_payload": {
+        "arg_values": {},
+        "field_values": {}
+      },
+      "trace": [
+        {
+          "step": 1,
+          "method": "cn.qs.controller.weixin.WeixinAuthController.calback:java.lang.String(java.lang.String,java.lang.String)",
+          "candidate_signature": "cn.qs.controller.weixin.WeixinAuthController.doLoginWithWechatUser:java.lang.String(cn.qs.bean.user.WechatUser)",
+          "candidate_name": "WechatUser)",
+          "candidate_source_type": "helper",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        },
+        {
+          "step": 2,
+          "method": "cn.qs.controller.weixin.WeixinAuthController.calback:java.lang.String(java.lang.String,java.lang.String)",
+          "candidate_signature": "cn.qs.controller.weixin.WeixinAuthController.calback:java.lang.String(java.lang.String,java.lang.String)#userService",
+          "candidate_name": "userService",
+          "candidate_source_type": "field",
+          "action": 0,
+          "selection_mode": "exclude",
+          "selected_text_preview": ""
+        }
+      ]
+    }
+  ]
+}

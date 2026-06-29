@@ -1,0 +1,890 @@
+[
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_000",
+    "call_chain": [
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "java.io.ByteArrayOutputStream@3a71f4dd",
+        "arg1": 2147483647
+      },
+      "field_values": {},
+      "description": "To force wrapOut to take the SnappyOutputStream(out, option) branch, option must be != -1. Providing a non-null OutputStream satisfies the constructor’s first parameter. Supplying an excessively large positive blockSize (option) that is outside SnappyOutputStream’s accepted range will cause org.xerial.snappy.SnappyOutputStream.<init>(OutputStream,int) to validate the block size and throw an IllegalArgumentException during initialization, triggering the sink behavior described in the PoC constraints."
+    },
+    "num_decisions": 0,
+    "num_include": 0,
+    "num_exclude": 0,
+    "truncated": false,
+    "elapsed_sec": 13.8962
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_001",
+    "call_chain": [
+      "com.lithium.flow.compress.ParallelCoder$1.lambda$cycle$0:byte[](int,byte[])",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.compress.ParallelCoder$1.lambda$cycle$0:byte[](int,byte[])",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {},
+      "field_values": {
+        "wrapOut.arg0(OutputStream)": "java.io.ByteArrayOutputStream@1a2b3c4d",
+        "wrapOut.arg1(blockSize)": 2147483647
+      },
+      "description": "This layer has a 0-argument entrypoint (ParallelCoder$1.lambda$cycle$0(int,byte[]) is not directly invokable from this layer’s perspective), so the payload cannot be provided via arg_values. To satisfy the downstream PoC constraints, execution inside lambda$cycle$0 must reach SnappyCoder.wrapOut(OutputStream,int) with a non-null OutputStream and a blockSize that is (a) not -1 so that wrapOut selects the SnappyOutputStream(OutputStream,int) constructor path, and (b) an invalid/too-large positive integer so SnappyOutputStream initialization throws IllegalArgumentException. The concrete malicious blockSize to drive this is 2147483647 (Integer.MAX_VALUE). The OutputStream can be any non-null instance; its contents are irrelevant, only non-nullness matters to reach the constructor and trigger the exception on blockSize validation."
+    },
+    "num_decisions": 0,
+    "num_include": 0,
+    "num_exclude": 0,
+    "truncated": false,
+    "elapsed_sec": 22.5783
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_002",
+    "call_chain": [
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "java.io.ByteArrayOutputStream@3f2a3d1c",
+        "arg1": -1
+      },
+      "field_values": {
+        "org.xerial.snappy.SnappyOutputStream.delegatedBlockSize": 2147483647,
+        "org.xerial.snappy.SnappyOutputStream.delegate.targetConstructor": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)",
+        "org.xerial.snappy.SnappyOutputStream.delegate.arg0": "java.io.ByteArrayOutputStream@3f2a3d1c",
+        "org.xerial.snappy.SnappyOutputStream.delegate.arg1": 2147483647
+      },
+      "description": "Provide any non-null OutputStream for out so wrapOut can proceed. Set option (arg1) to -1 to force the ternary to take the true branch and invoke org.xerial.snappy.SnappyOutputStream.<init>(OutputStream). Per the PoC constraints, that constructor internally delegates to SnappyOutputStream.<init>(OutputStream,int) using a default blockSize; to reach the failing behavior, that delegated blockSize must be an excessively large positive integer outside the accepted range (e.g., near Integer.MAX_VALUE), which triggers an IllegalArgumentException during SnappyOutputStream initialization."
+    },
+    "num_decisions": 0,
+    "num_include": 0,
+    "num_exclude": 0,
+    "truncated": false,
+    "elapsed_sec": 21.3084
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_003",
+    "call_chain": [
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "java.io.ByteArrayOutputStream@1a2b3c4d",
+        "arg1": "irrelevant"
+      },
+      "field_values": {
+        "outCoder": "com.lithium.flow.compress.SnappyCoder@5e2f3a91",
+        "compressOption": 2147483647
+      },
+      "description": "filterOut(out, name) simply forwards its non-null OutputStream argument to the receiver's outCoder.wrapOut(out, compressOption) and ignores the name. To ensure the next call dynamically dispatches to com.lithium.flow.compress.SnappyCoder.wrapOut(OutputStream,int), the receiver's outCoder field must be a non-null SnappyCoder instance. To trigger the downstream IllegalArgumentException during SnappyOutputStream initialization, compressOption must be set to an excessively large positive int (invalid Snappy blockSize), which SnappyCoder.wrapOut will pass through as the blockSize parameter. Using a concrete non-null OutputStream instance (e.g., a ByteArrayOutputStream runtime instance) satisfies the required forwarding precondition."
+    },
+    "num_decisions": 11,
+    "num_include": 2,
+    "num_exclude": 9,
+    "truncated": false,
+    "elapsed_sec": 34.5165
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_004",
+    "call_chain": [
+      "com.lithium.flow.compress.ParallelCoder$1.lambda$cycle$0:byte[](int,byte[])",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.compress.ParallelCoder$1.lambda$cycle$0:byte[](int,byte[])",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {},
+      "field_values": {
+        "captured_out": "java.io.ByteArrayOutputStream@4b85612c",
+        "captured_option": "-1",
+        "downstream_invalid_blockSize": 2147483647,
+        "delegated_out": "java.io.ByteArrayOutputStream@4b85612c",
+        "delegated_blockSize": 2147483647
+      },
+      "description": "This layer has no explicit parameters (lambda$cycle$0(int, byte[]) is analyzed here with an entry payload of zero args), so the triggering inputs must come from internal state captured by the lambda and the control-flow taken inside it. To satisfy the goal path, the lambda must execute the branch that invokes com.lithium.flow.compress.SnappyCoder.wrapOut(OutputStream,int). The OutputStream passed must be non-null so that SnappyOutputStream is constructed with a valid underlying sink; a concrete harmless instance is a ByteArrayOutputStream. The integer option passed to wrapOut must be exactly -1 so that wrapOut selects the 1-argument org.xerial.snappy.SnappyOutputStream(OutputStream) constructor. The downstream library constructor is assumed (per constraints) to delegate to org.xerial.snappy.SnappyOutputStream(OutputStream,int) using the same non-null OutputStream reference but with an invalid/too-large blockSize (e.g., Integer.MAX_VALUE), which triggers the library's block size validation failure (IllegalArgumentException) during SnappyOutputStream initialization. Thus, by setting the lambda-captured OutputStream to a non-null ByteArrayOutputStream instance and the option value to -1, this layer ensures the call chain reaches SnappyOutputStream with the required malformed block size behavior."
+    },
+    "num_decisions": 0,
+    "num_include": 0,
+    "num_exclude": 0,
+    "truncated": false,
+    "elapsed_sec": 26.1197
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_005",
+    "call_chain": [
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "java.io.ByteArrayOutputStream@3f1a2b4c",
+        "arg1": "java.lang.String@5c2a1f3b"
+      },
+      "field_values": {
+        "outCoder": "com.lithium.flow.compress.SnappyCoder@6d9c7a21",
+        "compressOption": 2147483647,
+        "delegated_out": "java.io.ByteArrayOutputStream@3f1a2b4c",
+        "delegated_blockSize": 2147483647
+      },
+      "description": "At this layer, CompressStreamer.filterOut(out, name) unconditionally dispatches to outCoder.wrapOut(out, compressOption). To reach the vulnerable Snappy path in the next method, outCoder must be an instance of com.lithium.flow.compress.SnappyCoder (so dynamic dispatch selects SnappyCoder.wrapOut(OutputStream,int)), and the provided out stream must be non-null. The name argument is unused here and can be any String (including null per annotation), so it does not affect control flow. The triggering condition for the downstream constructor selection is that the internal field compressOption is set to a value != -1; using an excessively large positive integer (near Integer.MAX_VALUE) forces SnappyCoder.wrapOut to call the 2-arg SnappyOutputStream(OutputStream,int) constructor with an invalid/too-large block size, which (per PoC constraints) results in an IllegalArgumentException during SnappyOutputStream initialization."
+    },
+    "num_decisions": 11,
+    "num_include": 6,
+    "num_exclude": 5,
+    "truncated": false,
+    "elapsed_sec": 47.4993
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_006",
+    "call_chain": [
+      "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "java.io.ByteArrayOutputStream@1a2b3c4d",
+        "arg1": "any"
+      },
+      "field_values": {
+        "streamers": "java.util.ArrayList@5e2f3a10(contains com.lithium.flow.streams.CompressStreamer@6b1c2d3e)",
+        "com.lithium.flow.streams.CompressStreamer@6b1c2d3e.outCoder": "com.lithium.flow.compress.SnappyCoder@4a7d1c9b",
+        "com.lithium.flow.streams.CompressStreamer@6b1c2d3e.compressOption": 2147483000,
+        "outCoder": "com.lithium.flow.compress.SnappyCoder@4a7d1c9b",
+        "compressOption": 2147483000
+      },
+      "description": "ChainedStreamer.filterOut(out, name) iterates over its internal `streamers` list and replaces `out` with the result of each `streamer.filterOut(out, name)` call. To reach the vulnerable sink in the next layer, the iteration must include a concrete `com.lithium.flow.streams.CompressStreamer` whose configuration causes it to wrap the provided non-null OutputStream via a `com.lithium.flow.compress.SnappyCoder`. Specifically, `CompressStreamer.filterOut` must dispatch to `SnappyCoder.wrapOut(out, compressOption)` with `compressOption != -1`, taking the branch that calls `SnappyOutputStream(OutputStream,int)`. Setting `compressOption` to an excessively large positive blockSize (e.g., near Integer.MAX_VALUE) makes `SnappyOutputStream` reject it and throw IllegalArgumentException during initialization. The `name` argument is not used by this method and can be any string; the key is ensuring `streamers` contains the correctly configured CompressStreamer so the loop reaches it."
+    },
+    "num_decisions": 18,
+    "num_include": 4,
+    "num_exclude": 14,
+    "truncated": false,
+    "elapsed_sec": 45.1531
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_007",
+    "call_chain": [
+      "com.lithium.flow.filer.StreamerFiler.appendFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.StreamerFiler.appendFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "test"
+      },
+      "field_values": {
+        "this.streamer": "com.lithium.flow.streams.CompressStreamer@5a07e868",
+        "((com.lithium.flow.streams.CompressStreamer)this.streamer).outCoder": "com.lithium.flow.compress.SnappyCoder@2f4d3709",
+        "((com.lithium.flow.streams.CompressStreamer)this.streamer).compressOption": "2147483647",
+        "super.appendFile(path)->out": "java.io.ByteArrayOutputStream@6d311334",
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@2f4d3709",
+        "this.compressOption": "2147483647"
+      },
+      "description": "appendFile(path) requires a non-null path and obtains a non-null OutputStream from super.appendFile(path). It then calls this.streamer.filterOut(out, path). Under the required configuration, this.streamer is a concrete CompressStreamer whose filterOut ignores the name and returns outCoder.wrapOut(out, compressOption). With outCoder being a SnappyCoder and compressOption set to an invalid/too-large positive blockSize, SnappyOutputStream(OutputStream,int) throws IllegalArgumentException during initialization inside wrapOut. This exception propagates back to appendFile where it is caught by the broad catch(Exception e) and routed to exceptionOut(out, e), triggering the vulnerable error-handling path. The provided path value is arbitrary as long as it is non-null; it is only forwarded as the name argument to filterOut and not used by CompressStreamer.filterOut."
+    },
+    "num_decisions": 20,
+    "num_include": 14,
+    "num_exclude": 6,
+    "truncated": false,
+    "elapsed_sec": 83.3654
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_008",
+    "call_chain": [
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc.dat"
+      },
+      "field_values": {
+        "this.streamer": "com.lithium.flow.streams.CompressStreamer@4b1f2a7c",
+        "this.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@2d9e1f0b",
+        "this.streamer.compressOption": "2147483647",
+        "super.writeFile(path)->out": "java.io.ByteArrayOutputStream@6a3f1c2e",
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@2d9e1f0b",
+        "this.compressOption": "2147483647"
+      },
+      "description": "Provide any non-null path string so StreamerFiler.writeFile(String) executes. The call to super.writeFile(path) is assumed (per preconditions) to return a non-null OutputStream, which is then passed to this.streamer.filterOut(out, path). Configure this.streamer as a non-null CompressStreamer whose outCoder dynamically dispatches to com.lithium.flow.compress.SnappyCoder.wrapOut(OutputStream,int), and ensure compressOption != -1 so wrapOut selects the SnappyOutputStream(OutputStream,int) constructor. Set compressOption to an excessively large positive int (e.g., 2147483647) so SnappyOutputStream initialization throws IllegalArgumentException due to an invalid/too-large blockSize. That exception is caught by StreamerFiler.writeFile's catch(Exception), which returns exceptionOut(out,e); subsequent writes on the returned OutputStream deterministically throw an IOException wrapping the original exception, demonstrating the failure trigger."
+    },
+    "num_decisions": 20,
+    "num_include": 12,
+    "num_exclude": 8,
+    "truncated": false,
+    "elapsed_sec": 43.7882
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_009",
+    "call_chain": [
+      "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "java.io.ByteArrayOutputStream@3feba861",
+        "arg1": "ignored-by-this-layer"
+      },
+      "field_values": {
+        "this.streamers": "java.util.ArrayList@6d311334 (contains: [<non-null Streamer returning non-null out>, com.lithium.flow.streams.CompressStreamer@4b0b2d2f])",
+        "streamers[1].outCoder": "com.lithium.flow.compress.SnappyCoder@2a84aee7",
+        "streamers[1].compressOption": "-1",
+        "org.xerial.snappy.SnappyOutputStream::<init>(OutputStream,int).arg1_blockSize": "2147480000",
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@2a84aee7",
+        "this.compressOption": "-1",
+        "org.xerial.snappy.SnappyOutputStream::<init>(OutputStream).arg0_out": "java.io.ByteArrayOutputStream@3feba861",
+        "org.xerial.snappy.SnappyOutputStream::<init>(OutputStream,int).arg0_out": "java.io.ByteArrayOutputStream@3feba861"
+      },
+      "description": "ChainedStreamer.filterOut(out,name) iterates through the receiver field 'streamers' and repeatedly replaces 'out' with each Streamer.filterOut return value. To reach the vulnerable path, 'streamers' must contain a com.lithium.flow.streams.CompressStreamer element, and all prior Streamers must return a non-null OutputStream so the value passed into CompressStreamer.filterOut remains non-null. When the iteration reaches the CompressStreamer, its filterOut delegates to outCoder.wrapOut(out, compressOption). Setting outCoder to an instance of com.lithium.flow.compress.SnappyCoder and compressOption to -1 forces SnappyCoder.wrapOut(out,-1) to take the branch that constructs org.xerial.snappy.SnappyOutputStream using the same non-null OutputStream. Inside SnappyOutputStream(OutputStream), it delegates to SnappyOutputStream(OutputStream,int) with an excessively large positive blockSize, which violates Snappy's accepted range and triggers an IllegalArgumentException during initialization (the intended sink condition)."
+    },
+    "num_decisions": 18,
+    "num_include": 5,
+    "num_exclude": 13,
+    "truncated": false,
+    "elapsed_sec": 36.4823
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_010",
+    "call_chain": [
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc/snappy_invalid_blocksize.bin"
+      },
+      "field_values": {
+        "this.delegate": "com.lithium.flow.filer.StreamerFiler@6b8f29c1",
+        "this.delegate.streamer": "com.lithium.flow.streams.CompressStreamer@4e25154f",
+        "this.delegate.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@1d44bcfa",
+        "this.delegate.streamer.compressOption": "2147483000",
+        "this.delegate.super.writeFile(path)->out": "java.io.ByteArrayOutputStream@266474c2",
+        "this.streamer": "com.lithium.flow.streams.CompressStreamer@4e25154f",
+        "this.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@1d44bcfa",
+        "this.streamer.compressOption": "2147483000",
+        "super.writeFile(path)->out": "java.io.ByteArrayOutputStream@266474c2",
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@1d44bcfa",
+        "this.compressOption": "2147483000",
+        "outCoder.wrapOut(out, compressOption)->next_call": "com.lithium.flow.compress.SnappyCoder.wrapOut(java.io.OutputStream,int)",
+        "option != -1 (select SnappyOutputStream(out, option))": "true",
+        "option is invalid/too-large blockSize": "2147483000"
+      },
+      "description": "DecoratedFiler.writeFile(path) is a pure delegate call: it forwards the non-null path argument directly to this.delegate.writeFile(path) with no validation or transformation. To ensure the call chain reaches the vulnerable sink described in the global PoC constraints, the object state must already satisfy: (1) this.delegate is a non-null com.lithium.flow.filer.StreamerFiler; (2) inside StreamerFiler.writeFile, super.writeFile(path) returns a non-null OutputStream; (3) StreamerFiler.streamer is a non-null com.lithium.flow.streams.CompressStreamer configured with outCoder as com.lithium.flow.compress.SnappyCoder and compressOption set to an invalid/too-large positive blockSize (e.g., 2147483000) and not equal to -1, so SnappyCoder.wrapOut(out, blockSize) selects the SnappyOutputStream(OutputStream,int) constructor; (4) SnappyOutputStream initialization then throws IllegalArgumentException due to the oversized blockSize, triggering the sink behavior. The concrete payload at this layer is simply any non-null path string that causes StreamerFiler to attempt opening/wrapping an output stream; the maliciousness is carried by the delegate/streamer internal configuration rather than the path value."
+    },
+    "num_decisions": 32,
+    "num_include": 7,
+    "num_exclude": 25,
+    "truncated": false,
+    "elapsed_sec": 47.2769
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_011",
+    "call_chain": [
+      "com.lithium.flow.filer.StreamerFiler.appendFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.StreamerFiler.appendFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc/snappy_illegal_block_size.bin"
+      },
+      "field_values": {
+        "this.streamer": "com.lithium.flow.streams.ChainedStreamer@4b1d9e4f",
+        "((com.lithium.flow.streams.ChainedStreamer)this.streamer).streamers": "java.util.ArrayList@2f92e0f4",
+        "((com.lithium.flow.streams.ChainedStreamer)this.streamer).streamers[0]": "com.lithium.flow.streams.CompressStreamer@6a7c3d11",
+        "((com.lithium.flow.streams.ChainedStreamer)this.streamer).streamers[0].outCoder": "com.lithium.flow.compress.SnappyCoder@3d5c8f21",
+        "((com.lithium.flow.streams.ChainedStreamer)this.streamer).streamers[0].compressOption": "2147483647",
+        "this.streamers": "java.util.ArrayList@2f92e0f4",
+        "this.streamers[0]": "com.lithium.flow.streams.CompressStreamer@6a7c3d11",
+        "this.streamers[0].outCoder": "com.lithium.flow.compress.SnappyCoder@3d5c8f21",
+        "this.streamers[0].compressOption": "2147483647",
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@3d5c8f21",
+        "this.compressOption": "2147483647"
+      },
+      "description": "appendFile(path) calls super.appendFile(path) to obtain a non-null OutputStream 'out', then invokes this.streamer.filterOut(out, path). Here this.streamer must be a com.lithium.flow.streams.ChainedStreamer whose internal 'streamers' list contains (and reaches) a com.lithium.flow.streams.CompressStreamer. During ChainedStreamer.filterOut, the loop applies each Streamer.filterOut; when it reaches that CompressStreamer, its filterOut delegates to outCoder.wrapOut(out, compressOption). With outCoder set to com.lithium.flow.compress.SnappyCoder and compressOption set to an excessively large positive int (not -1) outside SnappyOutputStream's allowed blockSize range (e.g., 2147483647), wrapOut triggers an IllegalArgumentException during SnappyOutputStream initialization. This exception is caught by appendFile's catch(Exception) block, which returns exceptionOut(out,e): an OutputStream that throws IOException(e) on any write, while still closing the underlying 'out' on close. Thus the crafted internal state forces the vulnerable Snappy initialization path to be taken and converts the resulting exception into a write-time IOException wrapper stream."
+    },
+    "num_decisions": 27,
+    "num_include": 11,
+    "num_exclude": 16,
+    "truncated": false,
+    "elapsed_sec": 35.9964
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_012",
+    "call_chain": [
+      "com.lithium.flow.filer.StreamerFiler.appendFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.StreamerFiler.appendFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc/path.bin"
+      },
+      "field_values": {
+        "streamer": "com.lithium.flow.streams.CompressStreamer@3a7f2b1c",
+        "streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@6d311334",
+        "streamer.compressOption": 2147483647,
+        "outCoder": "com.lithium.flow.compress.SnappyCoder@6d311334",
+        "compressOption": -1,
+        "SnappyOutputStream.delegate.blockSize": 2147483647,
+        "this.out": "java.io.ByteArrayOutputStream@5b2133b1",
+        "this.blockSize": 2147483647,
+        "delegates_to_constructor": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)"
+      },
+      "description": "To drive execution through StreamerFiler.appendFile(String), arg0 (path) must be non-null so the method calls super.appendFile(path) and obtains a non-null OutputStream. That exact OutputStream instance is then passed into streamer.filterOut(out, path). To ensure dynamic dispatch reaches com.lithium.flow.streams.CompressStreamer.filterOut(OutputStream,String), the receiver's field streamer must be a CompressStreamer instance. Inside that CompressStreamer, outCoder must be a com.lithium.flow.compress.SnappyCoder so that filterOut delegates to SnappyCoder.wrapOut(out, compressOption). To reach the vulnerable SnappyOutputStream initialization path, configure compressOption so that SnappyCoder.wrapOut ultimately creates a SnappyOutputStream with an excessively large blockSize (2147483647), triggering an IllegalArgumentException inside SnappyOutputStream's (OutputStream,int) constructor. However, appendFile catches Exceptions thrown by streamer.filterOut and returns exceptionOut(out,e); therefore, for the call chain to proceed past this layer without being diverted to exceptionOut, streamer.filterOut must not throw. This requires that the configured compressOption/outCoder combination does not throw during wrapping; the large blockSize value is the downstream PoC trigger and is carried as internal configuration/state rather than as an argument to appendFile."
+    },
+    "num_decisions": 20,
+    "num_include": 6,
+    "num_exclude": 14,
+    "truncated": false,
+    "elapsed_sec": 37.8075
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_013",
+    "call_chain": [
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc/snappy_blocksize_overflow.bin"
+      },
+      "field_values": {
+        "StreamerFiler.streamer": "com.lithium.flow.streams.ChainedStreamer@2f4a1c9b",
+        "ChainedStreamer.streamers": "java.util.ArrayList@5b6c7d8e",
+        "ChainedStreamer.streamers[0]": "com.lithium.flow.streams.CompressStreamer@1a2b3c4d",
+        "CompressStreamer.outCoder": "com.lithium.flow.compress.SnappyCoder@3c4d5e6f",
+        "CompressStreamer.compressOption": "2147483647"
+      },
+      "description": "To reach the vulnerable SnappyOutputStream initialization via this layer, StreamerFiler.writeFile(path) must (1) receive a non-null path string, (2) obtain a non-null OutputStream from super.writeFile(path), and (3) successfully invoke streamer.filterOut(out, path) without any earlier streamer throwing. Configure this StreamerFiler instance so its field 'streamer' is a non-null ChainedStreamer whose 'streamers' iterable yields at least one CompressStreamer. That CompressStreamer must have outCoder set to a non-null SnappyCoder and compressOption set to an invalid oversized positive blockSize (not -1), e.g., 2147483647. During ChainedStreamer.filterOut iteration, the CompressStreamer.filterOut delegates to SnappyCoder.wrapOut(out, compressOption), which selects SnappyOutputStream(OutputStream,int) with the oversized blockSize and triggers IllegalArgumentException (or equivalent) during initialization. If any earlier streamer throws, writeFile would catch it and return exceptionOut(out,e) instead, so ensure earlier elements are non-throwing. The 'path' value itself is not used by CompressStreamer, it just must be non-null to satisfy preconditions."
+    },
+    "num_decisions": 27,
+    "num_include": 11,
+    "num_exclude": 16,
+    "truncated": false,
+    "elapsed_sec": 38.8736
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_014",
+    "call_chain": [
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "any/path/value"
+      },
+      "field_values": {
+        "this.streamer": "com.lithium.flow.streams.CompressStreamer@3a1c2f90",
+        "this.delegate.writeFile(path).return": "java.io.ByteArrayOutputStream@5f184fc6",
+        "this.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@6b8a1d2e",
+        "this.streamer.compressOption": "-1",
+        "SnappyOutputStream.delegatedBlockSize": "2147483647",
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@6b8a1d2e",
+        "this.compressOption": "-1",
+        "SnappyOutputStream.delegatedOut": "java.io.ByteArrayOutputStream@5f184fc6",
+        "SnappyOutputStream.oneArgCtorDelegatesToTwoArgCtor": "true"
+      },
+      "description": "Invoke StreamerFiler.writeFile with any path string. Ensure the StreamerFiler receiver has its `streamer` field set to a concrete com.lithium.flow.streams.CompressStreamer instance. Also ensure the DecoratedFiler delegate used by super.writeFile(path) returns a non-null OutputStream whose runtime object is exactly the provided `java.io.ByteArrayOutputStream@5f184fc6`, and that super.writeFile completes normally (no exception) so execution reaches `streamer.filterOut(out, path)`. In the CompressStreamer instance, set `outCoder` to a concrete com.lithium.flow.compress.SnappyCoder instance and set `compressOption` to -1 so CompressStreamer.filterOut(out,name) calls SnappyCoder.wrapOut(out,-1) and takes the branch that invokes the 1-arg SnappyOutputStream(OutputStream) constructor. That constructor delegates to SnappyOutputStream(OutputStream,int) with the same OutputStream object (the ByteArrayOutputStream instance) and a too-large positive blockSize value `2147483647`, causing the expected IllegalArgumentException during SnappyOutputStream initialization. This matches the PoC constraint that the invalid blockSize is the same runtime value used at the delegation point."
+    },
+    "num_decisions": 20,
+    "num_include": 6,
+    "num_exclude": 14,
+    "truncated": false,
+    "elapsed_sec": 40.9782
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_015",
+    "call_chain": [
+      "com.lithium.flow.filer.lucene.LuceneFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.lucene.LuceneFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc/snappy_illegal_blocksize.dat"
+      },
+      "field_values": {
+        "writer": "org.apache.lucene.index.IndexWriter@5b2133b1",
+        "this.delegate": "com.lithium.flow.filer.StreamerFiler@2f4d3709",
+        "this.delegate.streamer": "com.lithium.flow.streams.CompressStreamer@6d06d69c",
+        "this.delegate.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@7852e922",
+        "this.delegate.streamer.compressOption": 2147483647,
+        "super.writeFile(path)_return": "java.io.OutputStream@3b9a45b3",
+        "this.streamer": "com.lithium.flow.streams.CompressStreamer@6d06d69c",
+        "this.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@7852e922",
+        "this.streamer.compressOption": 2147483647,
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@7852e922",
+        "this.compressOption": 2147483647,
+        "branch_taken": "option!=-1 -> new SnappyOutputStream(out, option)",
+        "next_call": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)"
+      },
+      "description": "Provide any non-null path string so LuceneFiler.writeFile(path) enters normally. It first calls deleteRecord(path), which requires this.writer != null and that writer.deleteDocuments(RecordDoc.getTermForPath(path)) returns without throwing. Then it calls super.writeFile(path), which must dispatch into DecoratedFiler.writeFile(path) and onward to a StreamerFiler whose streamer is a CompressStreamer. In that chain, StreamerFiler.writeFile must obtain a non-null underlying OutputStream (out != null) and then invoke CompressStreamer.filterOut(out, path) before handling any exception. With CompressStreamer.outCoder = SnappyCoder and compressOption set to an excessively large positive integer (not -1), SnappyCoder.wrapOut(out, compressOption) attempts to construct a SnappyOutputStream using that blockSize. Because the blockSize is far outside SnappyOutputStream's accepted range, SnappyOutputStream initialization throws IllegalArgumentException, triggering the intended failure condition. The concrete payload here is simply a valid, non-null path; the exploit-critical values are in internal fields (compressOption and coder selection) that must already be configured on the receiver object graph."
+    },
+    "num_decisions": 38,
+    "num_include": 14,
+    "num_exclude": 24,
+    "truncated": false,
+    "elapsed_sec": 73.2778
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_016",
+    "call_chain": [
+      "com.lithium.flow.filer.hash.RedisHashFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.hash.RedisHashFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc/redisHashFiler/snappy-blocksize-trigger"
+      },
+      "field_values": {
+        "pooler": "com.lithium.flow.redis.RedisPooler@5f2a3c1b",
+        "this.delegate": "com.lithium.flow.filer.StreamerFiler@2a9d8f6c",
+        "this.delegate.streamer": "com.lithium.flow.streams.CompressStreamer@4c7b1d2e",
+        "this.delegate.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@6d3e9a10",
+        "this.delegate.streamer.compressOption": 2147483640,
+        "super.writeFile(path)_return": "java.io.OutputStream@3b12f4a9",
+        "this.streamer": "com.lithium.flow.streams.CompressStreamer@4c7b1d2e",
+        "this.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@6d3e9a10",
+        "this.streamer.compressOption": 2147483640,
+        "next_call": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)",
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@6d3e9a10",
+        "this.compressOption": 2147483640,
+        "next_call.arg0": "java.io.OutputStream@3b12f4a9",
+        "next_call.arg1": 2147483640,
+        "branch_taken": "option != -1; returns new org.xerial.snappy.SnappyOutputStream(out, option)"
+      },
+      "description": "To reach the downstream vulnerable SnappyOutputStream initialization, RedisHashFiler.writeFile must be invoked with a non-null path so it can (1) call pooler.accept(j -> j.del(path)) without throwing, and then (2) proceed to super.writeFile(path). The provided path is a concrete Redis key / file identifier; its contents are not required to be special beyond being non-null, but it must be consistent across the delete and subsequent write so execution continues into DecoratedFiler.writeFile(String) and then into the StreamerFiler delegate chain described in the preconditions. The actual IllegalArgumentException trigger occurs later when CompressStreamer uses a SnappyCoder with a positive, excessively large compressOption blockSize; those required internal object graph settings are captured in field_values."
+    },
+    "num_decisions": 36,
+    "num_include": 15,
+    "num_exclude": 21,
+    "truncated": false,
+    "elapsed_sec": 62.8869
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_017",
+    "call_chain": [
+      "com.lithium.flow.filer.HarFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.HarFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "/tmp/out.dat"
+      },
+      "field_values": {
+        "this.harFunction.apply(\"/tmp/out.dat\")": null,
+        "this.hdfsFiler": "com.lithium.flow.filer.DecoratedFiler@5c2a1d8f",
+        "this.hdfsFiler.delegate": "com.lithium.flow.filer.StreamerFiler@3a7f19c4",
+        "this.hdfsFiler.delegate.streamer": "com.lithium.flow.streams.CompressStreamer@6e8b2f01",
+        "this.hdfsFiler.delegate.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@2f4c0d11",
+        "this.hdfsFiler.delegate.streamer.compressOption": 2147483000,
+        "this.hdfsFiler.delegate.super.writeFile(path)_return": "java.io.OutputStream@1b6d3586",
+        "branch_taken": "option!=-1 -> new SnappyOutputStream(out, option)",
+        "next_call": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)"
+      },
+      "description": "To reach the next layer (DecoratedFiler.writeFile) from HarFiler.writeFile, the only direct constraint on the method argument is that `path` is non-null and must NOT be considered a HAR path by `harFunction` (i.e., `harFunction.apply(path) == null`), otherwise `checkNotHarPath` throws `IOException(\"har paths are read only\")` and the chain stops. Using a normal HDFS-style path (without any HAR-specific prefix/pattern) satisfies this and allows execution to proceed to `hdfsFiler.writeFile(path)`. The downstream vulnerability (SnappyOutputStream initialization failing with IllegalArgumentException due to an excessively large blockSize/compressOption) is not controlled by this method argument; it is controlled by internal object graph state on `this.hdfsFiler` (DecoratedFiler -> StreamerFiler -> CompressStreamer -> SnappyCoder) and specifically `CompressStreamer.compressOption` being a huge positive int. Those required internal conditions are captured in the field_values."
+    },
+    "num_decisions": 44,
+    "num_include": 17,
+    "num_exclude": 27,
+    "truncated": false,
+    "elapsed_sec": 76.6833
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_018",
+    "call_chain": [
+      "com.lithium.flow.filer.TempWriteFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.TempWriteFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc.bin"
+      },
+      "field_values": {
+        "this.delegate": "com.lithium.flow.filer.StreamerFiler@3b1f2a9c",
+        "dirPath": "/tmp",
+        "extension": ".tmp",
+        "overwrite": true,
+        "num": "java.util.concurrent.atomic.AtomicInteger@5e2d3c10",
+        "this.delegate.streamer": "com.lithium.flow.streams.CompressStreamer@6ac1b9d2",
+        "this.delegate.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@2f4c1d8e",
+        "this.delegate.streamer.compressOption": 2147483647,
+        "this.streamer": "com.lithium.flow.streams.CompressStreamer@6ac1b9d2",
+        "this.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@2f4c1d8e",
+        "this.streamer.compressOption": 2147483647,
+        "super.writeFile(path)_return": "java.io.ByteArrayOutputStream@4a1f0c3d",
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@2f4c1d8e",
+        "this.compressOption": 2147483647,
+        "branch_taken": "option!=-1 -> new SnappyOutputStream(out, option)",
+        "next_call": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)"
+      },
+      "description": "Invoke TempWriteFiler.writeFile with a non-null destination path (e.g., a normal relative filename). The method computes a tempPath via getTempPath(path) and immediately calls super.writeFile(tempPath), which dispatches into DecoratedFiler.writeFile and then this.delegate.writeFile(tempPath) where delegate is the required StreamerFiler. StreamerFiler routes the raw OutputStream through its CompressStreamer.streamer.filterOut(out,tempPath). With outCoder=SnappyCoder and compressOption set to an invalid/too-large positive blockSize (2147483647), SnappyCoder.wrapOut(out, compressOption) selects SnappyOutputStream(OutputStream,int) and the SnappyOutputStream constructor throws IllegalArgumentException due to the out-of-range blockSize, reaching the sink behavior during initialization. The chosen path avoids earlier null checks and is suitable for getTempPath and file operations; the crash occurs before the returned DecoratedOutputStream is used/closed."
+    },
+    "num_decisions": 38,
+    "num_include": 15,
+    "num_exclude": 23,
+    "truncated": false,
+    "elapsed_sec": 84.0181
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_019",
+    "call_chain": [
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "poc/output.bin"
+      },
+      "field_values": {
+        "this.delegate": "com.lithium.flow.filer.StreamerFiler@5f1d7e3a",
+        "this.delegate.streamer": "com.lithium.flow.streams.ChainedStreamer@4c2a1b9d",
+        "this.delegate.streamer.streamers": "java.util.ArrayList@6a3c8b10",
+        "this.delegate.streamer.streamers[0]": "com.lithium.flow.streams.CompressStreamer@2e7d4c11",
+        "this.delegate.streamer.streamers[0].outCoder": "com.lithium.flow.compress.SnappyCoder@1b6f9a22",
+        "this.delegate.streamer.streamers[0].compressOption": 2147483000,
+        "constraint.super_writeFile_returns_non_null_OutputStream": true,
+        "constraint_prior_filterOuts_return_non_null_OutputStream": true,
+        "this.streamer": "com.lithium.flow.streams.ChainedStreamer@4c2a1b9d",
+        "constraint_super_writeFile_returns_non_null_OutputStream": true,
+        "super.writeFile(path)_return": "java.io.OutputStream@3a9b1c2d",
+        "this.streamer.streamers": "java.util.ArrayList@6a3c8b10",
+        "this.streamer.streamers[0]": "com.lithium.flow.streams.CompressStreamer@2e7d4c11",
+        "this.streamer.streamers[0].outCoder": "com.lithium.flow.compress.SnappyCoder@1b6f9a22",
+        "this.streamer.streamers[0].compressOption": 2147483000,
+        "this.streamers": "java.util.ArrayList@6a3c8b10",
+        "this.streamers[0]": "com.lithium.flow.streams.CompressStreamer@2e7d4c11",
+        "this.streamers[0].outCoder": "com.lithium.flow.compress.SnappyCoder@1b6f9a22",
+        "this.streamers[0].compressOption": 2147483000,
+        "constraint_streamers_non_null_and_non_empty": true,
+        "constraint_first_streamer_dispatches_to_CompressStreamer_filterOut": true,
+        "constraint_arg0_non_null_at_CompressStreamer_invocation": true,
+        "this.outCoder": "com.lithium.flow.compress.SnappyCoder@1b6f9a22",
+        "this.compressOption": 2147483000,
+        "constraint_arg0_non_null": true,
+        "constraint_compressOption_positive_not_minus_one": true,
+        "constraint_compressOption_excessively_large_invalid_snappy_blockSize": true,
+        "call_outCoder.wrapOut(out, compressOption)_dispatch": "com.lithium.flow.compress.SnappyCoder.wrapOut(java.io.OutputStream,int)",
+        "constraint_arg1_not_minus_one": true,
+        "constraint_arg1_excessively_large_invalid_snappy_blockSize": true,
+        "branch_taken": "option!=-1 -> new SnappyOutputStream(out, option)",
+        "next_call": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)"
+      },
+      "description": "This layer (DecoratedFiler.writeFile(String)) is a pure delegate call: it requires only that the incoming path argument is non-null and that this.delegate is a non-null StreamerFiler so the virtual call resolves to StreamerFiler.writeFile(path) with the same path. The vulnerability trigger happens downstream inside StreamerFiler/ChainedStreamer when a CompressStreamer using a SnappyCoder wraps the OutputStream with an excessively large/invalid positive blockSize (compressOption), causing SnappyOutputStream initialization to throw. Therefore, for this layer we supply any concrete non-null path string; all exploit-relevant conditions are expressed as required internal field state on delegate/streamer/compress streamer objects."
+    },
+    "num_decisions": 39,
+    "num_include": 14,
+    "num_exclude": 25,
+    "truncated": false,
+    "elapsed_sec": 57.2574
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_020",
+    "call_chain": [
+      "com.lithium.flow.util.TableUtils.buildTable:com.lithium.flow.table.Table(com.lithium.flow.config.Config)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.util.TableUtils.buildTable:com.lithium.flow.table.Table(com.lithium.flow.config.Config)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+      "final_payload": {
+        "arg_values": {
+          "arg0": "com.lithium.flow.config.BaseConfig@5b1d9a3e"
+        },
+        "field_values": {
+          "arg0.name": "poc",
+          "arg0.allowUndefined": true,
+          "arg0.store": "com.lithium.flow.store.MemoryStore@11111111",
+          "arg0.store.map[\"table\"]": "csv",
+          "arg0.store.map[\"csv.path\"]": "/tmp/flow-chain020-table.bin",
+          "arg0.store.map[\"filer.url\"]": "file:/tmp",
+          "arg0.store.map[\"filer.streamers\"]": "compress",
+          "arg0.store.map[\"filer.out.compress.type\"]": "snappy",
+          "arg0.store.map[\"filer.compress.option\"]": "2147483647"
+        },
+        "description": "To reach the next method call DecoratedFiler.writeFile(String), TableUtils.buildTable(config) must take the \"csv\" switch branch. Set config so getString(\"table\") returns \"csv\" and getString(\"csv.path\") returns a non-null path like \"poc/path.bin\". Filers.buildFiler(config) must yield a non-null DecoratedFiler whose predicate allows the record for that path, and whose delegate is a non-null StreamerFiler. StreamerFiler's super.writeFile(path) must return a non-null OutputStream without throwing. StreamerFiler.streamer must be a non-null ChainedStreamer with a non-empty streamers list where an earlier streamer does not return null from filterOut(out, path), and where a CompressStreamer is encountered. That CompressStreamer must have outCoder = SnappyCoder and compressOption set to an excessively large positive int (not -1), e.g. 2147483647, so SnappyCoder.wrapOut(out, compressOption) selects the (out, option) constructor path and triggers SnappyOutputStream initialization with an invalid blockSize, causing the intended IllegalArgumentException/DoS during wrapping after the writeFile(path) call succeeds. The concrete payload below models a Config instance whose internal properties and constructed objects satisfy these constraints, ensuring the call chain reaches DecoratedFiler.writeFile(\"poc/path.bin\")."
+    },
+    "num_decisions": 47,
+    "num_include": 25,
+    "num_exclude": 22,
+    "truncated": false,
+    "elapsed_sec": 89.2728
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_021",
+    "call_chain": [
+      "com.lithium.flow.util.TableUtils.buildTable:com.lithium.flow.table.Table(com.lithium.flow.config.Config)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.util.TableUtils.buildTable:com.lithium.flow.table.Table(com.lithium.flow.config.Config)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+      "final_payload": {
+        "arg_values": {
+          "arg0": "com.lithium.flow.config.BaseConfig@1a2b3c4d"
+        },
+        "field_values": {
+          "arg0.name": "poc",
+          "arg0.allowUndefined": true,
+          "arg0.store": "com.lithium.flow.store.MemoryStore@12121212",
+          "arg0.store.map[\"table\"]": "csv",
+          "arg0.store.map[\"csv.path\"]": "/tmp/flow-chain021-table.bin",
+          "arg0.store.map[\"filer.url\"]": "file:/tmp",
+          "arg0.store.map[\"filer.streamers\"]": "compress",
+          "arg0.store.map[\"filer.out.compress.type\"]": "snappy",
+          "arg0.store.map[\"filer.compress.option\"]": "-1"
+        },
+        "description": "To drive execution through TableUtils.buildTable(config) into the vulnerable output-stream wrapping chain, config must select the \"csv\" branch. Setting config.table=\"csv\" forces TableUtils to read config.csv.path and pass it into Filers.buildFiler(config).writeFile(path). Filers.buildFiler must yield a DecoratedFiler whose delegate is a StreamerFiler; DecoratedFiler.writeFile(path) then dispatches to StreamerFiler.writeFile(path). StreamerFiler obtains a non-null OutputStream from its super.writeFile(path) (denoted <POC_ARG0_OUT>), then applies streamer.filterOut(out, path). The StreamerFiler.streamer must be a CompressStreamer with outCoder=SnappyCoder and compressOption=-1 so the call resolves to SnappyCoder.wrapOut(out, -1), which uses SnappyOutputStream(OutputStream). The vulnerability trigger requires SnappyOutputStream(OutputStream) to delegate to SnappyOutputStream(OutputStream,int) with an invalid/too-large blockSize (e.g., 2147483647) while preserving the same underlying OutputStream reference, provoking the IllegalArgumentException during SnappyOutputStream initialization. After this wrapping, Coders.getCoder(path).wrapOut(out) must return a non-null OutputStream so execution would proceed to BufferedOutputStream and CsvOutputTable construction (though in the vulnerable scenario the exception is triggered earlier in SnappyOutputStream initialization)."
+    },
+    "num_decisions": 40,
+    "num_include": 8,
+    "num_exclude": 32,
+    "truncated": false,
+    "elapsed_sec": 73.0887
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_022",
+    "call_chain": [
+      "com.lithium.flow.util.TableUtils.buildTable:com.lithium.flow.table.Table(com.lithium.flow.config.Config)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.HarFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.util.TableUtils.buildTable:com.lithium.flow.table.Table(com.lithium.flow.config.Config)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "com.lithium.flow.config.Config@5b6c7d8e"
+      },
+      "field_values": {
+        "config.table": "csv",
+        "config.csv.path": "poc",
+        "Filers.factory.buildFiler(config,provided)": "com.lithium.flow.filer.DecoratedFiler@1a2b3c4d",
+        "com.lithium.flow.filer.DecoratedFiler@1a2b3c4d.delegate": "com.lithium.flow.filer.HarFiler@1a2b3c4d",
+        "com.lithium.flow.filer.HarFiler@1a2b3c4d.harFunction": "java.util.function.Function@6a7b8c9d",
+        "com.lithium.flow.filer.HarFiler@1a2b3c4d.harFunction.apply(\"poc\")": null,
+        "com.lithium.flow.filer.HarFiler@1a2b3c4d.hdfsFiler": "com.lithium.flow.filer.StreamerFiler@2b3c4d5e",
+        "com.lithium.flow.filer.StreamerFiler@2b3c4d5e.super.writeFile(\"poc\")": "java.io.OutputStream@3c4d5e6f",
+        "com.lithium.flow.filer.StreamerFiler@2b3c4d5e.streamer": "com.lithium.flow.streams.CompressStreamer@1a2b3c4d",
+        "com.lithium.flow.streams.CompressStreamer@1a2b3c4d.outCoder": "com.lithium.flow.compress.SnappyCoder@2b3c4d5e",
+        "com.lithium.flow.streams.CompressStreamer@1a2b3c4d.compressOption": 2147483647
+      },
+      "description": "To force TableUtils.buildTable(config) down the \"csv\" branch and reach the next sink DecoratedFiler.writeFile(String), the Config instance must (1) be non-null, (2) return \"csv\" for key \"table\", and (3) return the concrete path \"poc\" for key \"csv.path\". Filers.buildFiler(config) must return a DecoratedFiler instance whose delegate chain resolves to HarFiler -> StreamerFiler such that HarFiler permits the path (harFunction.apply(\"poc\") == null), and StreamerFiler applies a CompressStreamer with a SnappyCoder and an invalid/too-large blockSize (compressOption != -1, e.g., 2147483647). With these fields set, buildTable calls filer.writeFile(\"poc\"), which dispatches through DecoratedFiler to HarFiler to StreamerFiler; StreamerFiler obtains a non-null base OutputStream from its super.writeFile(\"poc\") and then calls streamer.filterOut(out,\"poc\"), which reaches SnappyCoder.wrapOut(OutputStream,int) using the oversized blockSize, triggering the intended failure during SnappyOutputStream initialization before returning the CsvOutputTable."
+    },
+    "num_decisions": 52,
+    "num_include": 21,
+    "num_exclude": 31,
+    "truncated": false,
+    "elapsed_sec": 96.9784
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_023",
+    "call_chain": [
+      "com.lithium.flow.runner.RunnerSync.sync:void(java.lang.String,java.lang.String)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.ChainedStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.runner.RunnerSync.sync:void(java.lang.String,java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "input.txt",
+        "arg1": "output.txt"
+      },
+      "field_values": {
+        "this.context": "com.lithium.flow.runner.RunnerContext@5a1f3c9b",
+        "this.context.filer": "com.lithium.flow.filer.Filer@2f3b1c8d",
+        "this.context.filer.readFile(arg0)_returns": "java.io.ByteArrayInputStream@6d9c7a12",
+        "this.destFiler": "com.lithium.flow.filer.DecoratedFiler@1c7e4b90",
+        "this.destFiler.delegate": "com.lithium.flow.filer.StreamerFiler@4b2a8d3e",
+        "this.destFiler.delegate.streamer": "com.lithium.flow.streams.ChainedStreamer@7e21b4d6",
+        "this.destFiler.delegate.streamer.streamers": "java.util.ArrayList@1f2e3d4c",
+        "this.destFiler.delegate.streamer.streamers[0]": "com.lithium.flow.streams.CompressStreamer@0f12ac9d",
+        "this.destFiler.delegate.streamer.streamers[0].outCoder": "com.lithium.flow.compress.SnappyCoder@2aa1b0cc",
+        "this.destFiler.delegate.streamer.streamers[0].compressOption": 2147483647,
+        "this.destFiler.delegate.super.writeFile(arg1)_return": "java.io.OutputStream@3a8f2c11",
+        "this.destFiler.delegate.streamers": "java.util.ArrayList@1f2e3d4c",
+        "this.destFiler.delegate.streamers[0]": "com.lithium.flow.streams.CompressStreamer@0f12ac9d",
+        "this.destFiler.delegate.streamers[0].outCoder": "com.lithium.flow.compress.SnappyCoder@2aa1b0cc",
+        "this.destFiler.delegate.streamers[0].compressOption": 2147483647,
+        "next_call": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)",
+        "next_call.arg0": "java.io.OutputStream@3a8f2c11",
+        "next_call.arg1(blockSize)": 2147483647,
+        "branch_taken": "option!=-1 -> new SnappyOutputStream(out, option)"
+      },
+      "description": "To reach the vulnerable SnappyOutputStream initialization described by the global PoC constraints, RunnerSync.sync must successfully open an InputStream from context.getFiler().readFile(srcPath) and then call destFiler.writeFile(destPath). The actual exception trigger is not controlled by srcPath/destPath content directly, but by the internal DecoratedFiler -> StreamerFiler -> ChainedStreamer pipeline: when writeFile(destPath) is invoked, the StreamerFiler wraps the returned base OutputStream through its streamer chain. If the chain contains a CompressStreamer configured with outCoder=SnappyCoder and compressOption set to an invalid/too-large positive blockSize (e.g., Integer.MAX_VALUE), then SnappyCoder.wrapOut(out, compressOption) will attempt to create a SnappyOutputStream with that blockSize and throw IllegalArgumentException during initialization. The provided concrete srcPath/destPath values are non-null and intended to allow the method to proceed up to destFiler.writeFile; the exploitability depends on the internal object graph and compressOption value recorded in field_values."
+    },
+    "num_decisions": 52,
+    "num_include": 18,
+    "num_exclude": 34,
+    "truncated": false,
+    "elapsed_sec": 93.3231
+  },
+  {
+    "cve_name": "CVE-2023-43642",
+    "chain_id": "chain_024",
+    "call_chain": [
+      "com.lithium.flow.runner.RunnerSync.sync:void(java.lang.String,java.lang.String)",
+      "com.lithium.flow.filer.DecoratedFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.filer.StreamerFiler.writeFile:java.io.OutputStream(java.lang.String)",
+      "com.lithium.flow.streams.CompressStreamer.filterOut:java.io.OutputStream(java.io.OutputStream,java.lang.String)",
+      "com.lithium.flow.compress.SnappyCoder.wrapOut:java.io.OutputStream(java.io.OutputStream,int)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream)",
+      "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)"
+    ],
+    "entry_method": "com.lithium.flow.runner.RunnerSync.sync:void(java.lang.String,java.lang.String)",
+    "sink_method": "org.xerial.snappy.SnappyOutputStream.<init>:void(java.io.OutputStream,int)",
+    "final_payload": {
+      "arg_values": {
+        "arg0": "/tmp/allowed-input.dat",
+        "arg1": "/tmp/output.snappy"
+      },
+      "field_values": {
+        "this.context": "com.lithium.flow.runner.RunnerContext@7b8c9d0e",
+        "this.context.filer": "com.lithium.flow.filer.Filer@4c3b2a19",
+        "this.context.filer.readFile(arg0)_returns": "java.io.ByteArrayInputStream@6a5b4c3d",
+        "this.destFiler": "com.lithium.flow.filer.DecoratedFiler@5e6f7788",
+        "this.destFiler.delegate": "com.lithium.flow.filer.StreamerFiler@6a7b8c9d",
+        "this.destFiler.delegate.streamer": "com.lithium.flow.streams.CompressStreamer@13579bdf",
+        "this.destFiler.delegate.streamer.outCoder": "com.lithium.flow.compress.SnappyCoder@2468ace0",
+        "this.destFiler.delegate.streamer.compressOption": -1,
+        "this.destFiler.delegate.super.writeFile(arg1)_return": "java.io.OutputStream@16e48ada",
+        "next_call": "org.xerial.snappy.SnappyOutputStream.<init>(java.io.OutputStream,int)",
+        "branch_taken": "option==-1 -> new SnappyOutputStream(out)"
+      },
+      "description": "To reach the vulnerable SnappyOutputStream initialization in the next layer, RunnerSync.sync must (1) successfully open an InputStream via context.getFiler().readFile(srcPath) and (2) call destFiler.writeFile(destPath) so the returned underlying OutputStream is created before compression wrapping occurs. Use any non-null existing/allowed srcPath that passes the predicate-filtered readFile(path) check and is present in the underlying filesystem so readFile returns a non-null InputStream. Use any non-null destPath. Configure RunnerSync.destFiler as a DecoratedFiler delegating to a StreamerFiler whose streamer is a CompressStreamer with outCoder=SnappyCoder and compressOption=-1; this ensures that after DecoratedFiler.writeFile(destPath) obtains the base OutputStream (the instance corresponding to the next-layer <POC_ARG0>), the downstream wrapping SnappyCoder.wrapOut(out, blockSize) is reached, where a very large positive blockSize (near Integer.MAX_VALUE; provided in the next layer) triggers IllegalArgumentException during org.xerial.snappy.SnappyOutputStream construction. Thus, this layer’s concrete inputs only need to ensure readFile succeeds and writeFile is invoked with the correct internal object graph in place."
+    },
+    "num_decisions": 45,
+    "num_include": 13,
+    "num_exclude": 32,
+    "truncated": false,
+    "elapsed_sec": 107.579
+  }
+]

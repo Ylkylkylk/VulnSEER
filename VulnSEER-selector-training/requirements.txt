@@ -1,0 +1,16 @@
+torch
+transformers
+peft
+trl==0.11.0
+bitsandbytes
+accelerate
+gymnasium
+pyyaml
+numpy
+openai
+tiktoken
+sentencepiece
+safetensors
+scipy
+packaging
+protobuf

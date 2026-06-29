@@ -1,0 +1,283 @@
+[
+  {
+    "sample_id": "case-014",
+    "project_id": "webbit",
+    "cpg_path": "cpg-file/webbit-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "org.webbitserver.netty.NettyHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+        "layer_type": "ENTRY",
+        "calls_next": "org.webbitserver.netty.NettyHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+        "preconditions": [
+          "this.httpRequest is a DefaultHttpRequest instance",
+          "this.httpRequest.headers is a Map<String, List<String>>",
+          "this.httpRequest.headers contains key 'Cookie'",
+          "this.httpRequest.headers.get('Cookie') returns a non-null List<String> containing at least one element",
+          "The first element of this.httpRequest.headers.get('Cookie') matches the sink requirement cookie header string",
+          "The cookie header string contains a cookie with name matching arg0"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "org.webbitserver.netty.NettyHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.webbitserver.netty.NettyHttpRequest.cookies:java.util.List()",
+        "preconditions": [
+          "this.httpRequest is a DefaultHttpRequest instance",
+          "this.httpRequest.headers is a Map<String, List<String>>",
+          "this.httpRequest.headers contains key 'Cookie'",
+          "this.httpRequest.headers.get('Cookie') returns a non-null List<String> containing at least one element",
+          "The first element of this.httpRequest.headers.get('Cookie') matches the sink requirement cookie header string",
+          "The cookie header string contains a cookie with name matching arg0"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "org.webbitserver.netty.NettyHttpRequest.cookies:java.util.List()",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "preconditions": [
+          "this.httpRequest is a DefaultHttpRequest instance",
+          "this.httpRequest.headers is a Map<String, List<String>>",
+          "this.httpRequest.headers contains key 'Cookie'",
+          "this.httpRequest.headers.get('Cookie') returns a non-null List<String> containing at least one element",
+          "The first element of this.httpRequest.headers.get('Cookie') matches the sink requirement cookie header string"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "method_signature": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "preconditions": [
+          "headerValues is a non-null List<String> containing at least one element",
+          "The first element of headerValues is a String that matches the sink requirement cookie header string"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "method_signature": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.lang.String",
+            "placeholder": "<COOKIE_HEADER_STRING>",
+            "description": "A cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE. The payload must contain duplicate cookie names with conflicting attribute assignments that trigger parsing inconsistencies in the decoder."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This entry payload triggers the vulnerability by calling cookieValue() with a cookie name that exists in the malicious cookie header string. The cookie header contains duplicate cookie names with conflicting $Path attributes, which will cause CookieDecoder to incorrectly parse cookie attributes. When cookie(name) is called, it will find the first matching cookie in the list, but the parsing inconsistencies in the underlying CookieDecoder will lead to integer overflow in getMaxAge() returning Integer.MIN_VALUE. The concrete value 'sessionId' is chosen as it's a common cookie name that would be present in the malicious header string.",
+      "arg_values": {
+        "arg0": "sessionId"
+      },
+      "field_values": {
+        "httpRequest": {
+          "type": "io.netty.handler.codec.http.DefaultHttpRequest",
+          "headers": {
+            "Cookie": [
+              "sessionId=abc123; $Path=/admin; sessionId=def456; $Path=/user"
+            ]
+          }
+        },
+        "messageEvent": {
+          "type": "io.netty.channel.MessageEvent"
+        },
+        "data": {},
+        "id": "test-id",
+        "timestamp": 1234567890,
+        "queryParameters": {},
+        "postParameters": {}
+      }
+    }
+  },
+  {
+    "sample_id": "case-017",
+    "project_id": "webbit",
+    "cpg_path": "cpg-file/webbit-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "org.webbitserver.wrapper.HttpRequestWrapper.cookieValue:java.lang.String(java.lang.String)",
+        "layer_type": "ENTRY",
+        "calls_next": "org.webbitserver.netty.NettyHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+        "preconditions": [
+          "this.request is a NettyHttpRequest object",
+          "this.request.httpRequest is a DefaultHttpRequest object",
+          "this.request.httpRequest.headers contains a key 'Cookie'",
+          "this.request.httpRequest.headers.get('Cookie') returns a List<String> with at least one element",
+          "The first element in the Cookie header list is a cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE",
+          "this.request.messageEvent is a MessageEvent object",
+          "this.request.id is an Object",
+          "this.request.timestamp is a long value",
+          "this.request.data is a Map<String, Object>",
+          "this.request.queryParameters is a QueryParameters object",
+          "this.request.postParameters is a QueryParameters object",
+          "arg0 is a String that matches the name of a cookie in the Cookie header that has the problematic attribute parsing"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "org.webbitserver.netty.NettyHttpRequest.cookieValue:java.lang.String(java.lang.String)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.webbitserver.netty.NettyHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+        "preconditions": [
+          "this.httpRequest is a DefaultHttpRequest object",
+          "this.httpRequest.headers contains a key 'Cookie'",
+          "this.httpRequest.headers.get('Cookie') returns a List<String> with at least one element",
+          "The first element in the Cookie header list is a cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE",
+          "this.messageEvent is a MessageEvent object",
+          "this.id is an Object",
+          "this.timestamp is a long value",
+          "this.data is a Map<String, Object>",
+          "this.queryParameters is a QueryParameters object",
+          "this.postParameters is a QueryParameters object",
+          "arg0 is a String that matches the name of a cookie in the Cookie header that has the problematic attribute parsing"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "org.webbitserver.netty.NettyHttpRequest.cookie:java.net.HttpCookie(java.lang.String)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.webbitserver.netty.NettyHttpRequest.cookies:java.util.List()",
+        "preconditions": [
+          "this.httpRequest is a DefaultHttpRequest object",
+          "this.httpRequest.headers contains a key 'Cookie'",
+          "this.httpRequest.headers.get('Cookie') returns a List<String> with at least one element",
+          "The first element in the Cookie header list is a cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE",
+          "this.messageEvent is a MessageEvent object",
+          "this.id is an Object",
+          "this.timestamp is a long value",
+          "this.data is a Map<String, Object>",
+          "this.queryParameters is a QueryParameters object",
+          "this.postParameters is a QueryParameters object"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "method_signature": "org.webbitserver.netty.NettyHttpRequest.cookies:java.util.List()",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "preconditions": [
+          "this.httpRequest is a DefaultHttpRequest object",
+          "this.httpRequest.headers contains a key 'Cookie'",
+          "this.httpRequest.headers.get('Cookie') returns a List<String> with at least one element",
+          "The first element in the Cookie header list is a cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "method_signature": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "preconditions": [
+          "headerValues is a non-null List<String> containing at least one element",
+          "The first element in headerValues must be a cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "method_signature": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.lang.String",
+            "placeholder": "<COOKIE_HEADER_STRING>",
+            "description": "A cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE. The payload must contain duplicate cookie names with conflicting attribute assignments that trigger parsing inconsistencies in the decoder."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This is the entry layer of the vulnerability chain. The HttpRequestWrapper.cookieValue() method simply delegates to the underlying NettyHttpRequest.cookieValue() method. To trigger the vulnerability, we need to pass a cookie name that exists in the malicious cookie header string. The cookie header contains duplicate cookie names with conflicting attributes that cause parsing inconsistencies in CookieDecoder. The vulnerability requires that the cookie name matches one of the duplicate names in the header, which will cause the CookieDecoder to incorrectly parse attributes and eventually lead to integer overflow in getMaxAge() returning Integer.MIN_VALUE. Since this is the entry point, we need to provide the cookie name that will be looked up in the malicious cookie header.",
+      "arg_values": {
+        "arg0": "sessionid"
+      },
+      "field_values": {
+        "httpRequest": {
+          "type": "io.netty.handler.codec.http.DefaultHttpRequest",
+          "headers": {
+            "Cookie": [
+              "sessionid=value1; $Path=/path1; $Max-Age=100, sessionid=value2; $Path=/path2; $Max-Age=200"
+            ]
+          }
+        },
+        "messageEvent": {
+          "type": "org.jboss.netty.channel.MessageEvent"
+        },
+        "data": {},
+        "id": "test-id",
+        "timestamp": 1234567890,
+        "queryParameters": {
+          "type": "org.webbitserver.QueryParameters"
+        },
+        "postParameters": {
+          "type": "org.webbitserver.QueryParameters"
+        }
+      }
+    }
+  }
+]

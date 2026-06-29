@@ -1,0 +1,718 @@
+[
+  {
+    "sample_id": "case-028",
+    "project_id": "adu-test",
+    "cpg_path": "cpg-file/adu-test-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "com.adu.utils.SimpleHttpClientUtil.httpExecute:java.lang.String(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext,java.lang.String)",
+        "layer_type": "ENTRY",
+        "calls_next": "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)",
+        "preconditions": [
+          "The field httpClient must be an instance of org.apache.http.impl.client.InternalHttpClient with a RedirectExec as its request executor chain",
+          "The field logger must be a non-null org.slf4j.Logger instance",
+          "The parameter request must be an HttpRequestWrapper containing a URI with user-info containing '@' characters that cause ambiguous parsing in URIUtils.extractHost()",
+          "The parameter context must be an HttpClientContext configured to allow redirects and handle the URI parsing edge case",
+          "The parameter charset must be a non-null String representing a valid character encoding"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<HttpRequestWrapper>",
+              "<HttpClientContext>",
+              "UTF-8"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.impl.client.InternalHttpClient.doExecute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)",
+        "preconditions": [
+          "The CloseableHttpClient instance must be an InternalHttpClient configured with a RedirectExec as its request executor chain",
+          "The HttpUriRequest must be a request wrapper containing a URI with user-info containing '@' characters that cause ambiguous parsing in URIUtils.extractHost()",
+          "The HttpContext must be an HttpClientContext configured to allow redirects and handle the URI parsing edge case"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "org.apache.http.impl.client.InternalHttpClient.doExecute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.impl.execchain.RedirectExec.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)",
+        "preconditions": [
+          "The InternalHttpClient instance must be configured with a RedirectExec as its request executor chain",
+          "The HttpHost must be constructed with a scheme and hostname that will be used to create an HttpRoute",
+          "The HttpRequest must be a request wrapper containing a URI with user-info containing '@' characters that cause ambiguous parsing in URIUtils.extractHost()",
+          "The HttpContext must be an HttpClientContext configured to allow redirects and handle the URI parsing edge case"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "method_signature": "org.apache.http.impl.execchain.RedirectExec.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)",
+        "preconditions": [
+          "The caller method RedirectExec.execute must be invoked with a request that contains a URI with user-info containing '@' characters that cause ambiguous parsing in URIUtils.extractHost()",
+          "The HttpClientContext must be configured to allow redirects and handle the URI parsing edge case",
+          "The HttpRoute must be constructed to route to the vulnerable URI"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "method_signature": "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.net.URI",
+            "placeholder": "<URI_WITH_USER_INFO_CONTAINING_HOST_PORT_SEPARATORS>",
+            "description": "A URI where the user-info component contains '@' characters that can be misinterpreted as host-port separators, causing URIUtils.extractHost() to incorrectly parse the authority section and potentially return null or incorrect host information. The vulnerability involves ambiguous parsing of authority components when '@' symbols appear in user credentials."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This entry payload triggers the vulnerability by creating an HttpRequestWrapper with a URI containing '@' characters in the user-info component. Specifically, the URI 'http://user@pass@example.com:8080/path' has user-info 'user@pass' which contains an '@' character. When URIUtils.extractHost() parses this URI, it may misinterpret the '@' in user-info as a host-port separator, leading to incorrect parsing of the authority section. The HttpClientContext is configured to handle redirects, and the charset is set to UTF-8. The httpClient field is set to an InternalHttpClient with RedirectExec as its request executor chain, and logger is a non-null Logger instance.",
+      "arg_values": {
+        "arg0": {
+          "type": "org.apache.http.client.methods.HttpRequestWrapper",
+          "uri": "http://user@pass@example.com:8080/path",
+          "method": "GET"
+        },
+        "arg1": {
+          "type": "org.apache.http.protocol.HttpClientContext",
+          "redirectStrategy": "org.apache.http.impl.client.DefaultRedirectStrategy",
+          "requestConfig": {
+            "redirectsEnabled": true
+          }
+        },
+        "arg2": "UTF-8"
+      },
+      "field_values": {
+        "httpClient": {
+          "type": "org.apache.http.impl.client.InternalHttpClient",
+          "requestExecutor": "org.apache.http.impl.execchain.RedirectExec"
+        },
+        "logger": {
+          "type": "org.slf4j.Logger",
+          "name": "com.adu.utils.SimpleHttpClientUtil"
+        }
+      }
+    }
+  },
+  {
+    "sample_id": "case-038",
+    "project_id": "adyen-api",
+    "cpg_path": "cpg-file/adyen-api-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "com.github.woki.payments.adyen.Client.endpoint:com.github.woki.payments.adyen.Client$IAccount(java.lang.String)",
+        "layer_type": "ENTRY",
+        "calls_next": "com.github.woki.payments.adyen.Client$Builder.<init>:void(java.lang.String)",
+        "preconditions": [
+          "endpoint is a non-blank string that can be parsed into a URI where the user-info component contains an '@' symbol followed by what appears to be a host:port pattern"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "com.github.woki.payments.adyen.Client$Builder.<init>:void(java.lang.String)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "com.github.woki.payments.adyen.ClientConfig.<init>:void(java.lang.String)",
+        "preconditions": [
+          "endpoint is a non-blank string that can be parsed into a URI where the user-info component contains an '@' symbol followed by what appears to be a host:port pattern"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "com.github.woki.payments.adyen.ClientConfig.<init>:void(java.lang.String)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)",
+        "preconditions": [
+          "endpoint is a non-blank string that can be parsed into a URI where the user-info component contains an '@' symbol followed by what appears to be a host:port pattern"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "method_signature": "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.net.URI",
+            "placeholder": "<URI_WITH_USER_INFO_CONTAINING_AT_SYMBOL_FOLLOWED_BY_HOST_PORT>",
+            "description": "A URI where the user-info component contains an '@' symbol followed by what appears to be a host:port pattern, causing URIUtils.extractHost to misinterpret the authority section and return null instead of extracting the actual host. This exploits improper parsing of URIs with encoded '@' symbols in the user-info field."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "The endpoint method is a static factory method that creates a Builder instance with the provided endpoint string. According to the sink-level constraints, the endpoint must be a non-blank string that can be parsed into a URI where the user-info component contains an '@' symbol followed by what appears to be a host:port pattern. This exploits improper parsing of URIs with encoded '@' symbols in the user-info field, causing URIUtils.extractHost to misinterpret the authority section and return null. The concrete value 'http://user%40example.com@example.com:8080/path' satisfies this condition: it's a valid URI string where 'user%40example.com' is the user-info (decoded as 'user@example.com'), containing an '@' symbol, followed by 'example.com:8080' which appears as a host:port pattern. This payload will be passed to the Builder constructor, initiating the vulnerability chain.",
+      "arg_values": {
+        "arg0": "http://user%40example.com@example.com:8080/path"
+      },
+      "field_values": {}
+    }
+  },
+  {
+    "sample_id": "case-006",
+    "project_id": "webbit",
+    "cpg_path": "cpg-file/webbit-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "org.webbitserver.netty.NettyHttpRequest.cookies:java.util.List()",
+        "layer_type": "ENTRY",
+        "calls_next": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "preconditions": [
+          "this.httpRequest is a concrete implementation of HttpRequest (e.g., DefaultHttpRequest) with a headers map containing at least one entry for key 'Cookie'",
+          "The value for key 'Cookie' in httpRequest.getHeaders() is a non-null java.util.List<String> containing at least one String element",
+          "Each String element in the Cookie header list must be a cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "preconditions": [
+          "headerValues is a non-null java.util.List containing at least one String element",
+          "Each String element in headerValues must be a cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.lang.String",
+            "placeholder": "<COOKIE_HEADER_STRING>",
+            "description": "A cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE. The payload must contain duplicate cookie names with conflicting attribute assignments that trigger parsing inconsistencies in the decoder."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This entry payload triggers the vulnerability by creating a NettyHttpRequest instance with a DefaultHttpRequest that contains a Cookie header with duplicate cookie names having conflicting $Path attributes. The specific cookie string 'session=value1; $Path=/admin; session=value2; $Path=/user; Max-Age=2147483648' contains duplicate 'session' cookies with different $Path values (/admin vs /user) and a Max-Age value that will cause integer overflow when parsed by CookieDecoder. The conflicting attributes cause parsing inconsistencies, and the Max-Age value of 2147483648 (2^31) overflows to Integer.MIN_VALUE when converted to int.",
+      "arg_values": {},
+      "field_values": {
+        "httpRequest": {
+          "type": "io.netty.handler.codec.http.DefaultHttpRequest",
+          "headers": {
+            "Cookie": [
+              "session=value1; $Path=/admin; session=value2; $Path=/user; Max-Age=2147483648"
+            ]
+          }
+        },
+        "messageEvent": {
+          "type": "io.netty.channel.MessageEvent",
+          "concrete": true
+        },
+        "id": "test-id",
+        "timestamp": 1234567890
+      }
+    }
+  },
+  {
+    "sample_id": "case-035",
+    "project_id": "adu-test",
+    "cpg_path": "cpg-file/adu-test-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "com.adu.utils.SimpleHttpClientUtil.httpGet:java.lang.String(java.lang.String,java.lang.String)",
+        "layer_type": "ENTRY",
+        "calls_next": "com.adu.utils.SimpleHttpClientUtil.httpExecute:java.lang.String(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext,java.lang.String)",
+        "preconditions": [
+          "arg0 must be a non-null String representing a URL that, when passed to HttpGet constructor, results in an HttpUriRequest suitable for httpClient.execute()",
+          "arg1 must be a non-null String for character encoding, such as 'UTF-8'"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<HttpUriRequest>",
+              "UTF-8"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "com.adu.utils.SimpleHttpClientUtil.httpExecute:java.lang.String(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext,java.lang.String)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)",
+        "preconditions": [
+          "The field httpClient must be a CloseableHttpClient instance that is an AbstractHttpClient with a DefaultRequestDirector configured as its request director",
+          "The DefaultRequestDirector must be configured to use a request that contains a URI with user-info containing '@' characters that can be misinterpreted as host-port separators, causing URIUtils.extractHost() to incorrectly parse the authority section",
+          "The request parameter must be an HttpUriRequest that will be passed to httpClient.execute()",
+          "The context parameter must be an HttpContext that will be passed to httpClient.execute()",
+          "The charset parameter must be a non-null String for character encoding"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<HttpUriRequest>",
+              "<HttpContext>",
+              "UTF-8"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.impl.client.AbstractHttpClient.doExecute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)",
+        "preconditions": [
+          "The CloseableHttpClient instance must be an AbstractHttpClient with a DefaultRequestDirector configured as its request director, and the DefaultRequestDirector must be configured to use a request that contains a URI with user-info containing '@' characters that can be misinterpreted as host-port separators, causing URIUtils.extractHost() to incorrectly parse the authority section."
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "method_signature": "org.apache.http.impl.client.AbstractHttpClient.doExecute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.impl.client.DefaultRequestDirector.execute:org.apache.http.HttpResponse(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)",
+        "preconditions": [
+          "The AbstractHttpClient instance must have a DefaultRequestDirector configured as its request director, and the DefaultRequestDirector must be configured to use a request that contains a URI with user-info containing '@' characters that can be misinterpreted as host-port separators, causing URIUtils.extractHost() to incorrectly parse the authority section."
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "method_signature": "org.apache.http.impl.client.DefaultRequestDirector.execute:org.apache.http.HttpResponse(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)",
+        "preconditions": [
+          "The DefaultRequestDirector instance must be configured to use a request that contains a URI with user-info containing '@' characters that can be misinterpreted as host-port separators, causing URIUtils.extractHost() to incorrectly parse the authority section."
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "method_signature": "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.net.URI",
+            "placeholder": "<URI_WITH_USER_INFO_CONTAINING_HOST_PORT_SEPARATORS>",
+            "description": "A URI where the user-info component contains '@' characters that can be misinterpreted as host-port separators, causing URIUtils.extractHost() to incorrectly parse the authority section and potentially return null or incorrect host information. The vulnerability involves ambiguous parsing of authority components when '@' symbols appear in user credentials."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This is the entry layer for the vulnerability chain. The method httpGet takes a URL string and charset as parameters, creates an HttpGet object with the URL, and passes it to httpExecute. According to the global sink-level constraints, the vulnerability involves URI parsing where '@' characters in the user-info component can be misinterpreted as host-port separators. To trigger this, I need to provide a URL string that contains '@' symbols in the user credentials portion, which will be passed to the HttpGet constructor. The charset parameter can be any valid encoding like 'UTF-8'. Since this is a static method, no instance fields are involved.",
+      "arg_values": {
+        "arg0": "http://user@pass@example.com:8080/path",
+        "arg1": "UTF-8"
+      },
+      "field_values": {
+        "httpClient": {
+          "type": "org.apache.http.impl.client.DefaultHttpClient",
+          "description": "CloseableHttpClient instance that is an AbstractHttpClient with a DefaultRequestDirector configured as its request director"
+        },
+        "logger": {
+          "type": "org.slf4j.Logger",
+          "description": "Logger instance for warning messages"
+        }
+      }
+    }
+  },
+  {
+    "sample_id": "case-044",
+    "project_id": "wechat-ssm",
+    "cpg_path": "cpg-file/wechat-ssm-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getJsapiTicket:java.lang.String()",
+        "layer_type": "ENTRY",
+        "calls_next": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+        "preconditions": [
+          "StringUtils.isBlank(jsapiTicket) returns true OR isExpiredJsapiTicket() returns true",
+          "getAccessToken() returns a non-null, non-empty string that can be used as a replacement for 'ACCESS_TOKEN' in JSAPI_TICKET_URL",
+          "JSAPI_TICKET_URL is a non-null string containing the substring 'ACCESS_TOKEN'",
+          "HttpUtils.doGet returns a non-null, non-empty JSON string containing a 'ticket' field when called with the constructed URL",
+          "The JSON string returned by HttpUtils.doGet is valid JSON that can be parsed by com.alibaba.fastjson.JSON.parseObject"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "cn.qs.utils.weixin.WeixinInterfaceUtils.getAccessToken:java.lang.String()",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "com.alibaba.fastjson.JSON.parseObject:com.alibaba.fastjson.JSONObject(java.lang.String)",
+        "preconditions": [
+          "StringUtils.isBlank(accessToken) returns true OR isExpiredAccessToken() returns true",
+          "HttpUtils.doGetWithParams returns a non-null, non-empty JSON string containing an 'access_token' field",
+          "The JSON string returned by HttpUtils.doGetWithParams is valid JSON that can be parsed by com.alibaba.fastjson.JSON.parseObject"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "com.alibaba.fastjson.JSON.parseObject:com.alibaba.fastjson.JSONObject(java.lang.String)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "com.alibaba.fastjson.JSON.parse:java.lang.Object(java.lang.String)",
+        "preconditions": [
+          "The caller method com.alibaba.fastjson.JSON.parseObject is invoked with no parameters, which internally calls com.alibaba.fastjson.JSON.parse with a JSON string argument that must satisfy the callee's constraints."
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "method_signature": "com.alibaba.fastjson.JSON.parse:java.lang.Object(java.lang.String)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.lang.String",
+            "placeholder": "<JSON_STRING>",
+            "description": "A JSON string containing a '@type' property that specifies a Java class with a deserialization gadget chain, potentially leading to arbitrary code execution or denial of service. The payload exploits FastJSON's auto-type feature by specifying a class that can trigger dangerous operations during deserialization, such as constructing exceptions with controlled stack traces or invoking methods through reflection. The vulnerability is triggered when the specified class has accessible constructors, setters, or getters that execute harmful logic when instantiated or populated from JSON data."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This is the entry layer (Layer 0) for the vulnerability chain. The method getJsapiTicket() is a static method that retrieves a JSAPI ticket from a WeChat API. To trigger the vulnerability path, we need to ensure the method fetches a new ticket by making an HTTP request. This requires: 1) jsapiTicket to be blank or expired, 2) getAccessToken() to return a valid token for URL construction, 3) JSAPI_TICKET_URL to contain 'ACCESS_TOKEN', and 4) the HTTP response to be a valid JSON string with a 'ticket' field. The vulnerability will be triggered in subsequent layers when the JSON response from the HTTP call contains malicious FastJSON payloads with '@type' properties that exploit deserialization gadgets. For this layer, we set field values to force ticket refresh and ensure the HTTP response contains a valid (non-malicious) JSON with a ticket field, while the malicious payload will be injected in deeper layers through the JSON response.",
+      "arg_values": {},
+      "field_values": {
+        "jsapiTicket": "",
+        "lastGetJsapiTicketTime": null,
+        "JSAPI_TICKET_URL": "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi",
+        "accessToken": "",
+        "lastGetAccessTokenTime": null,
+        "ACCESS_TOKEN_URL": "https://api.weixin.qq.com/cgi-bin/token",
+        "WeixinConstants.APPID": "test_appid",
+        "WeixinConstants.APP_SECRET": "test_secret"
+      }
+    }
+  },
+  {
+    "sample_id": "case-007",
+    "project_id": "webbit",
+    "cpg_path": "cpg-file/webbit-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "org.webbitserver.stub.StubHttpRequest.cookies:java.util.List()",
+        "layer_type": "ENTRY",
+        "calls_next": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "preconditions": [
+          "this.headers is a non-null List<Map.Entry<String, String>> containing at least one entry where entry.getKey().equals(\"Cookie\") and entry.getValue() is the exact sink requirement cookie header string"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "preconditions": [
+          "headerValues is a non-null java.util.List containing at least one String element",
+          "The first String element in headerValues must be the exact sink requirement cookie header string"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.lang.String",
+            "placeholder": "<COOKIE_HEADER_STRING>",
+            "description": "A cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE. The payload must contain duplicate cookie names with conflicting attribute assignments that trigger parsing inconsistencies in the decoder."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This entry payload triggers the vulnerability by setting up the StubHttpRequest instance with a specific cookie header that contains duplicate cookie names with conflicting attributes. The method cookies() calls headers(COOKIE_HEADER) which retrieves all cookie header values, then passes them to InboundCookieParser.parse. The vulnerability occurs when CookieDecoder.decode processes a cookie header string with duplicate cookie names having different $Path values, causing parsing inconsistencies that lead to integer overflow in getMaxAge() returning Integer.MIN_VALUE. The concrete cookie header string is designed to trigger this specific parsing bug.",
+      "arg_values": {},
+      "field_values": {
+        "headers": [
+          {
+            "key": "Cookie",
+            "value": "sessionId=abc123; $Path=/admin; sessionId=def456; $Path=/user; maliciousCookie=overflow; $Max-Age=2147483648"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "sample_id": "case-054",
+    "project_id": "wechat-ssm",
+    "cpg_path": "cpg-file/wechat-ssm-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "cn.qs.utils.HttpUtils.doPost:java.lang.String(java.lang.String,java.lang.String,boolean)",
+        "layer_type": "ENTRY",
+        "calls_next": "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest)",
+        "preconditions": [
+          "The caller method cn.qs.utils.HttpUtils.doPost must construct an HttpPost object with a URL that contains a user-info component with '@' symbols, such as 'http://user@example@example.com'",
+          "The HttpPost object must be passed to client.execute, which will internally call determineTarget on the HttpUriRequest",
+          "The client object must be a CloseableHttpClient instance created via HttpClientBuilder.create().build()",
+          "The params argument must be a non-null String to construct a StringEntity",
+          "The isJsonData argument can be any boolean value, as it only affects headers and not the URI processing"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "http://user@example@example.com",
+              "someParams",
+              false
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)",
+        "preconditions": [
+          "The caller method org.apache.http.impl.client.CloseableHttpClient.execute receives an HttpUriRequest argument that contains a URI with user-info component containing '@' symbols that can be misinterpreted during host extraction",
+          "The HttpUriRequest argument must be passed to the determineTarget method during execution"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.impl.client.CloseableHttpClient.determineTarget:org.apache.http.HttpHost(org.apache.http.client.methods.HttpUriRequest)",
+        "preconditions": [
+          "The caller method org.apache.http.impl.client.CloseableHttpClient.execute receives an HttpUriRequest argument that contains a URI with user-info component containing '@' symbols that can be misinterpreted during host extraction",
+          "The HttpUriRequest argument must be passed to the determineTarget method during execution"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "method_signature": "org.apache.http.impl.client.CloseableHttpClient.determineTarget:org.apache.http.HttpHost(org.apache.http.client.methods.HttpUriRequest)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)",
+        "preconditions": [
+          "The caller method org.apache.http.impl.client.CloseableHttpClient.determineTarget receives an HttpUriRequest argument that contains a URI with user-info component containing '@' symbols that can be misinterpreted during host extraction"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "method_signature": "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.net.URI",
+            "placeholder": "<URI_WITH_USER_INFO_CONTAINING_AT_SYMBOLS>",
+            "description": "A URI where the user-info component contains '@' symbols that can be misinterpreted during host extraction, potentially causing the extractHost method to return null or incorrect host information due to ambiguous parsing of authority components."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This entry payload triggers the vulnerability by providing a URL with a user-info component containing '@' symbols (http://user@example@example.com). When the HttpPost object is constructed with this URL, it creates a URI where the authority parsing becomes ambiguous due to multiple '@' symbols in the user-info section. This will cause the determineTarget method (called internally by client.execute) to misinterpret the host extraction, potentially returning null or incorrect host information. The params argument is set to a non-null string 'someParams' to successfully construct the StringEntity, and isJsonData is set to false since it doesn't affect URI processing. The CloseableHttpClient is created via HttpClientBuilder as required.",
+      "arg_values": {
+        "arg0": "http://user@example@example.com",
+        "arg1": "someParams"
+      },
+      "field_values": {}
+    }
+  },
+  {
+    "sample_id": "case-009",
+    "project_id": "webbit",
+    "cpg_path": "cpg-file/webbit-cpg.bin",
+    "execution_plan": [
+      {
+        "step_index": 0,
+        "method_signature": "org.webbitserver.wrapper.HttpRequestWrapper.cookies:java.util.List()",
+        "layer_type": "ENTRY",
+        "calls_next": "org.webbitserver.netty.NettyHttpRequest.cookies:java.util.List()",
+        "preconditions": [
+          "this.request is an instance of org.webbitserver.netty.NettyHttpRequest",
+          "this.request.headers is a Map<String, List<String>> containing a key \"Cookie\" with a non-null List<String> value",
+          "The List<String> value for key \"Cookie\" in this.request.headers has at least one element",
+          "The first element in the List<String> for key \"Cookie\" in this.request.headers is the exact sink requirement cookie header string"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "method_signature": "org.webbitserver.netty.NettyHttpRequest.cookies:java.util.List()",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "preconditions": [
+          "this.httpRequest is a concrete implementation of HttpRequest with a getHeaders method that returns a non-null List<String> containing at least one element when called with parameter \"Cookie\"",
+          "The first element in the List<String> returned by this.httpRequest.getHeaders(\"Cookie\") must be the exact sink requirement cookie header string"
+        ],
+        "candidate_inputs": [
+          {
+            "args": []
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "method_signature": "org.webbitserver.helpers.InboundCookieParser.parse:java.util.List(java.util.List)",
+        "layer_type": "INTERMEDIATE",
+        "calls_next": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "preconditions": [
+          "headerValues is a non-null java.util.List containing at least one String element",
+          "The first String element in headerValues must be the exact sink requirement cookie header string"
+        ],
+        "candidate_inputs": [
+          {
+            "args": [
+              "<SINK_ARG0>"
+            ]
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "method_signature": "org.jboss.netty.handler.codec.http.CookieDecoder.decode:java.util.Set(java.lang.String)",
+        "layer_type": "SINK",
+        "calls_next": null,
+        "sink_requirements": {
+          "arg0": {
+            "type": "java.lang.String",
+            "placeholder": "<COOKIE_HEADER_STRING>",
+            "description": "A cookie header string containing multiple cookie definitions with the same name but different attributes (e.g., different $Path values) that causes the CookieDecoder to incorrectly parse cookie attributes, leading to integer overflow in getMaxAge() returning Integer.MIN_VALUE. The payload must contain duplicate cookie names with conflicting attribute assignments that trigger parsing inconsistencies in the decoder."
+          }
+        }
+      }
+    ],
+    "ground_truth_payload": {
+      "description": "This is the entry layer (Layer 0) of the call chain. The HttpRequestWrapper.cookies() method simply delegates to the underlying request object's cookies() method. To satisfy the layer exploit-goal constraints, we need to ensure that 'this.request' is an instance of NettyHttpRequest with specific header configuration. The vulnerability will be triggered when the cookie header contains duplicate cookie names with conflicting attributes (as specified in the global sink-level constraints), which will be parsed by InboundCookieParser.parse() in the next layer. The concrete cookie header string must contain multiple cookie definitions with the same name but different $Path values to cause parsing inconsistencies leading to integer overflow in getMaxAge().",
+      "arg_values": {},
+      "field_values": {
+        "request": {
+          "type": "org.webbitserver.netty.NettyHttpRequest",
+          "headers": {
+            "Cookie": [
+              "sessionId=abc123; $Path=/admin; sessionId=def456; $Path=/user; Max-Age=2147483647; sessionId=ghi789; $Path=/; Max-Age=2147483648"
+            ]
+          }
+        },
+        "httpRequest": {
+          "type": "org.webbitserver.HttpRequest",
+          "headers": {
+            "Cookie": [
+              "sessionId=abc123; $Path=/admin; sessionId=def456; $Path=/user; Max-Age=2147483647; sessionId=ghi789; $Path=/; Max-Age=2147483648"
+            ]
+          }
+        }
+      }
+    }
+  }
+]
