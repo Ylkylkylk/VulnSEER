@@ -1,136 +1,112 @@
 # VulnSEER
 
-VulnSEER is a reproducibility artifact for LLM-guided vulnerability exploitability analysis. Given a Java client project, VulnSEER builds code-property graph context, constructs entry-to-sink execution plans, resolves exploit states with an LLM, optionally selects useful context with a trained selector, and validates generated payloads with the validation engine.
+VulnSEER is a reproducibility artifact for LLM-guided exploitability analysis of vulnerable Java dependencies. Given a client project and a reachable vulnerable sink, VulnSEER builds code context from Joern CPGs, performs layer-wise exploit-goal inference, resolves an entry-level payload with an LLM, and validates the generated payload with a Java replay engine.
 
-The repository is organized to mirror the paper workflow:
+The artifact follows the workflow used in the paper:
 
-1. Build CPGs and call chains.
-2. Infer sink requirements and layer-wise exploit goals.
-3. Train or choose a context selector.
+1. Generate code-property graphs (CPGs) for Java client projects.
+2. Extract reachable entry-to-sink call chains.
+3. Train or load the context selector.
 4. Run the main payload-generation pipeline.
-5. Dynamically validate generated payloads.
+5. Validate the generated payloads.
 
-## Repository Layout
+## Repository Structure
 
 ```text
 VulnSEER/
-├── VulnSEER-main-pipeline/       # CPG/call-chain processing and payload generation
-├── VulnSEER-selector-training/   # RL, CodeBERT, and Qwen-LoRA selector training
-├── VulnSEER-validation/          # Java validation engine and client applications
+├── VulnSEER-main-pipeline/       # CPG processing, call-chain reasoning, and payload generation
+├── VulnSEER-selector-training/   # RL selector training and ablation selector training scripts
+├── VulnSEER-validation/          # Java replay-based validation engine and evaluation clients
 ├── requirements.txt              # Python dependencies
+├── requirement.txt               # Compatibility alias for requirements.txt
 └── README.md
 ```
 
-Generated artifacts such as CPG binaries, model checkpoints, logs, and pipeline outputs are not intended to be committed.
+Large generated artifacts, model checkpoints, logs, CPG binaries, and validation reports should be kept outside version control.
 
-## Environment
+## Requirements
 
-We recommend Linux with CUDA for selector training. Payload generation and validation can run on CPU, but selector training requires a GPU for practical runtime.
-
-Required external tools:
+We recommend Linux with a CUDA-capable GPU for selector training. Payload generation and validation can run on CPU, although LLM calls require an API-compatible endpoint.
 
 - Python 3.10 or 3.11
 - JDK 17
 - Maven 3.8+
 - Joern CLI with `joern` and `joern-parse`
-- CUDA-compatible GPU for RL/LoRA selector training
+- CUDA GPU for RL/LoRA selector training
+- An OpenAI-compatible API key for LLM inference
 
-Install Python dependencies:
+## Environment Setup
 
 ```bash
+# Create an isolated Python environment for the Python pipeline.
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
-```
 
-Set environment variables:
-
-```bash
+# Point VulnSEER to JDK 17 and Joern.
 export JAVA_HOME=/path/to/jdk-17
 export PATH="$JAVA_HOME/bin:$PATH"
-
 export JOERN_HOME=/path/to/joern-cli
 export PATH="$JOERN_HOME:$PATH"
 
+# Select the GPU used for selector training.
 export CUDA_VISIBLE_DEVICES=0
+
+# Configure the LLM endpoint. Do not commit real keys.
 export OPENAI_API_KEY="YOUR_API_KEY"
 export OPENAI_BASE_URL="https://openrouter.ai/api/v1"
 ```
 
-Do not commit API keys or local machine paths.
-
 ## Step 1: Generate CPGs
 
-VulnSEER uses Joern CPGs as the primary code representation. Put Java client projects under:
-
-```text
-VulnSEER-main-pipeline/client-apps/
-```
-
-Generate one CPG manually:
+VulnSEER uses Joern CPGs as the static code representation. For a single Java client project, run:
 
 ```bash
-cd VulnSEER-main-pipeline
-mkdir -p cpg-file
-
-joern-parse client-apps/adyen-api \
+# Parse one Java client project into a Joern CPG.
+# Replace the two paths with your local project path and desired CPG file.
+joern-parse /path/to/client-project \
   --language javasrc \
-  --output cpg-file/adyen-api-cpg.bin \
+  --output /path/to/project-cpg.bin \
   --frontend-args --enable-file-content
 ```
 
-Batch-generate CPGs for the configured client projects:
+For the bundled evaluation clients, VulnSEER also provides a batch helper:
 
 ```bash
+# Generate CPGs for the configured evaluation clients.
 cd VulnSEER-main-pipeline
 python batch_generate_cpg.py
 ```
 
-Optional CPG sanity check in Joern:
+Optional Joern sanity check:
 
 ```scala
-importCpg("cpg-file/adyen-api-cpg.bin")
-cpg.method.fullNameExact("fully.qualified.Method:ret(args)").l
+importCpg("/path/to/project-cpg.bin")
+cpg.method.fullNameExact("fully.qualified.Method:returnType(argTypes)").l
 ```
 
 ## Step 2: Extract Call Chains
 
-Use `joern.py` to query call chains from a CPG to a sink-pattern:
+The call-chain extraction script queries a CPG for methods matching a sink pattern and emits normalized call-chain records consumed by the main pipeline.
 
 ```bash
+# Query one CPG for call chains that reach methods matching the sink pattern.
 cd VulnSEER-main-pipeline
-
-VULNSEER_CPG_FILE=cpg-file/gerenciador-viagens-cpg.bin \
-VULNSEER_SINK=matches \
-VULNSEER_CALLCHAINS_OUTPUT=call-chain-output/gerenciador-viagens-callchains.json \
+VULNSEER_CPG_FILE=/path/to/project-cpg.bin \
+VULNSEER_SINK="sinkNameOrRegex" \
 python joern.py
 ```
 
-For full reproduction, prepare:
+For full reproduction, prepare the project/CVE mapping, CPGs, call-chain records, client projects, and sink-level exploit sketches in the artifact data format shipped with this repository.
 
-```text
-VulnSEER-main-pipeline/cpg-file/*.bin
-VulnSEER-main-pipeline/call-chain-output/*-callchains.json
-VulnSEER-main-pipeline/file-cve-1.json
-VulnSEER-main-pipeline/exploit-sketches/
-```
+## Step 3: Train the RL Selector
 
-`exploit-sketches/` contains sink-level exploit sketches used to infer generalized sink requirements.
-
-## Step 3: Train Selectors
-
-Selector training code is in:
+The main experiments use an RL-trained context selector. The selector learns whether a candidate code context item should be included during exploit-state resolution.
 
 ```bash
+# Train the RL selector used by the main pipeline.
 cd VulnSEER-selector-training
-```
-
-### RL Selector
-
-```bash
-VULNSEER_SELECTOR_BASE_MODEL=/path/to/Qwen3-8B \
-OPENAI_API_KEY="YOUR_API_KEY" \
 python main_train.py \
   --config configs/default_config.yaml \
   --curriculum configs/curriculum_config.yaml \
@@ -138,155 +114,69 @@ python main_train.py \
   --total_timesteps 1000
 ```
 
-The final LoRA checkpoint is written to:
-
-```text
-VulnSEER-selector-training/output/vulnseer_selector_lora_final/
-```
-
-### CodeBERT Selector
-
-```bash
-python train_codebert_binary.py \
-  --train_file data/codebert_binary_train.jsonl \
-  --val_file data/codebert_binary_val.jsonl \
-  --model_name /path/to/codebert-base \
-  --output_dir output/codebert_binary \
-  --max_length 512 \
-  --learning_rate 2e-5 \
-  --train_batch_size 4 \
-  --eval_batch_size 4 \
-  --num_train_epochs 5 \
-  --disable_pin_memory \
-  --dataloader_num_workers 0
-```
-
-### Qwen-LoRA Binary Selector
-
-```bash
-python train_qwen3_lora_cls.py \
-  --train_file data/codebert_binary_train.jsonl \
-  --val_file data/codebert_binary_val.jsonl \
-  --model_name /path/to/Qwen3-8B \
-  --output_dir output/qwen3_lora_binary \
-  --max_length 1024 \
-  --learning_rate 1e-4 \
-  --train_batch_size 1 \
-  --eval_batch_size 1 \
-  --gradient_accumulation_steps 8 \
-  --num_train_epochs 3 \
-  --bf16
-```
+The same directory also includes CodeBERT and Qwen-LoRA selector scripts for ablation studies. Those selectors are optional and are not required for the primary VulnSEER workflow.
 
 ## Step 4: Run the Main Pipeline
 
-Main pipeline entry:
+The main pipeline takes prepared CPG/call-chain inputs, uses the RL selector to choose useful context, asks the solver LLM to resolve exploit states, and produces VulnSEER-format payload JSON objects.
 
 ```bash
+# Run VulnSEER with the trained RL selector.
+# Replace model paths with your local base model and selector checkpoint.
 cd VulnSEER-main-pipeline
-```
-
-The default run uses `file-cve-1.json`, `cpg-file/`, `call-chain-output/`, `exploit-sketches/`, and `client-apps/` under `VulnSEER-main-pipeline`.
-
-### Always-Include Baseline
-
-```bash
-OPENAI_API_KEY="YOUR_API_KEY" \
-OPENAI_BASE_URL="https://openrouter.ai/api/v1" \
-python run_multi_chain_pipeline.py \
-  --policy always_include \
-  --solver_models gpt-5.2
-```
-
-### RL Selector
-
-```bash
-OPENAI_API_KEY="YOUR_API_KEY" \
 python run_multi_chain_pipeline.py \
   --policy rl \
   --base_model /path/to/Qwen3-8B \
-  --lora_path ../VulnSEER-selector-training/output/vulnseer_selector_lora_final \
+  --lora_path /path/to/vulnseer-rl-selector \
   --solver_models gpt-5.2
 ```
 
-### CodeBERT Selector
+Useful options:
 
-```bash
-OPENAI_API_KEY="YOUR_API_KEY" \
-python run_multi_chain_pipeline.py \
-  --policy codebert \
-  --codebert_model_path ../VulnSEER-selector-training/output/codebert_binary \
-  --codebert_threshold 0.7 \
-  --solver_models gpt-5.2
-```
+- `--solver_models`: LLM used for exploit-goal inference and payload resolution.
+- `--base_model`: base model used by the RL selector.
+- `--lora_path`: trained RL selector checkpoint.
+- `--save_trace`: keep per-layer context-selection traces for debugging.
 
-### LLM Selector
-
-```bash
-OPENAI_API_KEY="YOUR_API_KEY" \
-python run_multi_chain_pipeline.py \
-  --policy gpt \
-  --gpt_model_name gpt-5.2 \
-  --gpt_base_url "$OPENAI_BASE_URL" \
-  --solver_models gpt-5.2
-```
-
-### Qwen-LoRA Selector
-
-```bash
-OPENAI_API_KEY="YOUR_API_KEY" \
-python run_multi_chain_pipeline.py \
-  --policy qwen_lora \
-  --base_model /path/to/Qwen3-8B \
-  --lora_path ../VulnSEER-selector-training/output/qwen3_lora_binary \
-  --qwen_lora_threshold 0.7 \
-  --qwen_lora_max_length 1024 \
-  --solver_models gpt-5.2
-```
-
-Outputs are written to model-specific `multi-chain-output-*` directories under `VulnSEER-main-pipeline`.
+Optional selector policies for ablation are available through `--policy codebert`, `--policy qwen_lora`, `--policy gpt`, `--policy always_include`, `--policy always_exclude`, and `--policy random`. Use `python run_multi_chain_pipeline.py --help` for the required arguments of each optional policy.
 
 ## Step 5: Validate Generated Payloads
 
-Build the Java validation engine:
+The validation engine replays generated VulnSEER payloads against Java client projects and reports whether the vulnerable behavior is reached and triggered.
 
 ```bash
+# Build the Java validation engine.
 cd VulnSEER-validation
 mvn clean package
 ```
 
-Run validation for one generated input file:
-
 ```bash
+# Validate one generated VulnSEER payload.
+# Replace the placeholders with the client project, payload JSON, and validation report directory.
 java -jar -noverify vulnseer-engine/target/vulnseer-engine-1.0.jar \
-  -p client-apps/flow \
-  -input input/flow/gpt5.2-rl/input.json \
-  -output output/flow-gpt5.2-rl
+  -p /path/to/client-project \
+  -input /path/to/generated-payload.json \
+  -output /path/to/validation-report
 ```
 
-For batch validation, use:
+For batch validation over selected bundled clients:
 
 ```bash
+# Run the bundled parallel validator configuration.
 cd VulnSEER-validation
 bash run_selected_clients_parallel.sh
 ```
 
-## Expected Artifacts
+## Final Artifact
 
-A successful run produces:
-
-- CPG files: `VulnSEER-main-pipeline/cpg-file/*.bin`
-- Call chains: `VulnSEER-main-pipeline/call-chain-output/*.json`
-- Execution plans and payloads: `VulnSEER-main-pipeline/multi-chain-output-*`
-- Selector checkpoints: `VulnSEER-selector-training/output/*`
-- Validation outputs: `VulnSEER-validation/output*`
+A successful reproduction produces a VulnSEER validation report for each generated payload. The report records the call chain, entry method, sink method, generated payload, replay status, and whether the vulnerability-triggering condition is observed.
 
 ## Reproducibility Notes
 
-- Joern parsing is sensitive to Java version and project dependencies. Use JDK 17 unless the target client project requires otherwise.
-- LLM results may vary across model providers and model versions. Record `OPENAI_BASE_URL`, model names, and decoding settings for experiments.
-- Large binary artifacts and downloaded model checkpoints should be stored outside Git or released separately.
-- The validation engine assumes Maven-compatible Java client projects and generated input JSON files in VulnSEER format.
+- Joern parsing is sensitive to Java versions and project dependencies; use JDK 17 unless a client project requires otherwise.
+- LLM outputs may vary across providers and model versions. Record the solver model, API endpoint, and selector checkpoint used in each experiment.
+- Keep API keys, local absolute paths, model checkpoints, CPG binaries, and generated reports out of Git.
+- The validation engine assumes Maven-compatible Java client projects and VulnSEER-format payload JSON.
 
 ## Citation
 
