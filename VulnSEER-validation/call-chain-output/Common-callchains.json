@@ -1,0 +1,6 @@
+[
+    [
+        "gov.uspto.common.file.archive.ZipReader.open:gov.uspto.common.file.archive.ZipReader()",
+        "org.apache.commons.compress.archivers.zip.ZipFile.<init>:void(java.io.File)"
+    ]
+]

@@ -1,0 +1,17 @@
+[
+    [
+        "com.example.VulnController.executeCommand:void(java.lang.String)",
+        "java.lang.Runtime.getRuntime:java.lang.Runtime()"
+    ],
+    [
+        "com.example.VulnController.processData:void(java.lang.String)",
+        "com.example.VulnController.executeCommand:void(java.lang.String)",
+        "java.lang.Runtime.getRuntime:java.lang.Runtime()"
+    ],
+    [
+        "com.example.VulnController.apiEndpoint:void(java.lang.String)",
+        "com.example.VulnController.processData:void(java.lang.String)",
+        "com.example.VulnController.executeCommand:void(java.lang.String)",
+        "java.lang.Runtime.getRuntime:java.lang.Runtime()"
+    ]
+]

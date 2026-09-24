@@ -1,0 +1,34 @@
+[
+    [
+        "net.pinodev.ultraplaytime.utils.RewardsUtils.compressed:byte[](int[])",
+        "org.xerial.snappy.BitShuffle.shuffle:byte[](int[])"
+    ],
+    [
+        "net.pinodev.ultraplaytime.tasks.TaskAutoSave.autoSaveData:void()",
+        "net.pinodev.ultraplaytime.utils.RewardsUtils.compressed:byte[](int[])",
+        "org.xerial.snappy.BitShuffle.shuffle:byte[](int[])"
+    ],
+    [
+        "net.pinodev.ultraplaytime.tasks.TasksQuit.lambda$saveUser$0:void(net.pinodev.ultraplaytime.cache.User,long)",
+        "net.pinodev.ultraplaytime.utils.RewardsUtils.compressed:byte[](int[])",
+        "org.xerial.snappy.BitShuffle.shuffle:byte[](int[])"
+    ],
+    [
+        "net.pinodev.ultraplaytime.migration.CMIProvider.executeMigration:void(org.bukkit.command.CommandSender)",
+        "net.pinodev.ultraplaytime.utils.RewardsUtils.compressed:byte[](int[])",
+        "org.xerial.snappy.BitShuffle.shuffle:byte[](int[])"
+    ],
+    [
+        "net.pinodev.ultraplaytime.tasks.TasksManager.shutdownScheduler:void()",
+        "net.pinodev.ultraplaytime.tasks.TaskAutoSave.autoSaveData:void()",
+        "net.pinodev.ultraplaytime.utils.RewardsUtils.compressed:byte[](int[])",
+        "org.xerial.snappy.BitShuffle.shuffle:byte[](int[])"
+    ],
+    [
+        "net.pinodev.ultraplaytime.UltraPlaytime.onDisable:void()",
+        "net.pinodev.ultraplaytime.tasks.TasksManager.shutdownScheduler:void()",
+        "net.pinodev.ultraplaytime.tasks.TaskAutoSave.autoSaveData:void()",
+        "net.pinodev.ultraplaytime.utils.RewardsUtils.compressed:byte[](int[])",
+        "org.xerial.snappy.BitShuffle.shuffle:byte[](int[])"
+    ]
+]

@@ -1,0 +1,17 @@
+[
+    [
+        "io.github.zlika.reproducible.ZipStripper.strip:void(java.io.File,java.io.File)",
+        "org.apache.commons.compress.archivers.zip.ZipFile.<init>:void(java.io.File)"
+    ],
+    [
+        "io.github.zlika.reproducible.StripJarMojo.strip:void()",
+        "io.github.zlika.reproducible.ZipStripper.strip:void(java.io.File,java.io.File)",
+        "org.apache.commons.compress.archivers.zip.ZipFile.<init>:void(java.io.File)"
+    ],
+    [
+        "io.github.zlika.reproducible.StripJarMojo.execute:void()",
+        "io.github.zlika.reproducible.StripJarMojo.strip:void()",
+        "io.github.zlika.reproducible.ZipStripper.strip:void(java.io.File,java.io.File)",
+        "org.apache.commons.compress.archivers.zip.ZipFile.<init>:void(java.io.File)"
+    ]
+]

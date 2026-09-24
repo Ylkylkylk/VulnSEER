@@ -1,0 +1,18 @@
+[
+    [
+        "com.sangupta.neo.download.DownloadManager.downloadToTempFile:java.io.File(java.lang.String)",
+        "com.sangupta.jerry.http.WebRequest.execute:com.sangupta.jerry.http.WebRawResponse()",
+        "com.sangupta.jerry.http.HttpExecutor.execute:com.sangupta.jerry.http.WebRawResponse(com.sangupta.jerry.http.WebRequest)",
+        "org.apache.http.impl.client.DecompressingHttpClient.execute:org.apache.http.HttpResponse(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)",
+        "org.apache.http.impl.client.DecompressingHttpClient.getHttpHost:org.apache.http.HttpHost(org.apache.http.client.methods.HttpUriRequest)",
+        "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)"
+    ],
+    [
+        "com.sangupta.neo.download.DownloadManager.downloadToTempFile:java.io.File(java.lang.String)",
+        "com.sangupta.jerry.http.WebRequest.execute:com.sangupta.jerry.http.WebRawResponse()",
+        "com.sangupta.jerry.http.HttpExecutor.execute:com.sangupta.jerry.http.WebRawResponse(com.sangupta.jerry.http.WebRequest)",
+        "org.apache.http.impl.client.CloseableHttpClient.execute:org.apache.http.client.methods.CloseableHttpResponse(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)",
+        "org.apache.http.impl.client.CloseableHttpClient.determineTarget:org.apache.http.HttpHost(org.apache.http.client.methods.HttpUriRequest)",
+        "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)"
+    ]
+]

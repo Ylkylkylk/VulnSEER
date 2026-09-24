@@ -1,0 +1,18 @@
+[
+    [
+        "com.adu.utils.ExcelUtils.exportExcel:boolean(java.util.Map,java.lang.String,java.lang.String)",
+        "org.jxls.util.JxlsHelper.processTemplate:void(java.io.InputStream,java.io.OutputStream,org.jxls.common.Context)",
+        "org.jxls.area.XlsArea.applyAt:org.jxls.common.Size(org.jxls.common.CellRef,org.jxls.common.Context)",
+        "org.jxls.command.GridCommand.applyAt:org.jxls.common.Size(org.jxls.common.CellRef,org.jxls.common.Context)",
+        "org.jxls.command.GridCommand.processBody:org.jxls.common.Size(org.jxls.common.CellRef,org.jxls.common.Context)",
+        "org.apache.commons.beanutils.PropertyUtils.getProperty:java.lang.Object(java.lang.Object,java.lang.String)"
+    ],
+    [
+        "com.adu.org.apache.commons.httpclient.HttpUtil.getNewsInfoById:net.sf.json.JSONObject(int)",
+        "net.sf.json.JSONObject.fromObject:net.sf.json.JSONObject(java.lang.Object)",
+        "net.sf.json.JSONObject.fromObject:net.sf.json.JSONObject(java.lang.Object,net.sf.json.JsonConfig)",
+        "net.sf.json.JSONObject._fromBean:net.sf.json.JSONObject(java.lang.Object,net.sf.json.JsonConfig)",
+        "net.sf.json.JSONObject.defaultBeanProcessing:net.sf.json.JSONObject(java.lang.Object,net.sf.json.JsonConfig)",
+        "org.apache.commons.beanutils.PropertyUtils.getProperty:java.lang.Object(java.lang.Object,java.lang.String)"
+    ]
+]

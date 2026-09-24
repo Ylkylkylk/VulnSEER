@@ -1,0 +1,36 @@
+[
+    [
+        "com.montanha.gerenciador.controller.GerenciadorViagemController.buscar:org.springframework.http.ResponseEntity(java.lang.Long,java.lang.String)",
+        "com.montanha.gerenciador.services.ViagemServices.buscar:com.montanha.gerenciador.dtos.ViagemDtoResponse(java.lang.Long)",
+        "com.fasterxml.jackson.databind.ObjectMapper.readValue:java.lang.Object(java.lang.String,java.lang.Class)"
+    ],
+    [
+        "com.montanha.security.utils.JwtTokenUtil.refreshToken:java.lang.String(java.lang.String)",
+        "com.montanha.security.utils.JwtTokenUtil.getClaimsFromToken:io.jsonwebtoken.Claims(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws:io.jsonwebtoken.Jws(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parse:java.lang.Object(java.lang.String,io.jsonwebtoken.JwtHandler)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parse:io.jsonwebtoken.Jwt(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.readValue:java.util.Map(java.lang.String)",
+        "com.fasterxml.jackson.databind.ObjectMapper.readValue:java.lang.Object(java.lang.String,java.lang.Class)"
+    ],
+    [
+        "com.montanha.security.utils.JwtTokenUtil.getUsernameFromToken:java.lang.String(java.lang.String)",
+        "com.montanha.security.utils.JwtTokenUtil.getClaimsFromToken:io.jsonwebtoken.Claims(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws:io.jsonwebtoken.Jws(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parse:java.lang.Object(java.lang.String,io.jsonwebtoken.JwtHandler)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parse:io.jsonwebtoken.Jwt(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.readValue:java.util.Map(java.lang.String)",
+        "com.fasterxml.jackson.databind.ObjectMapper.readValue:java.lang.Object(java.lang.String,java.lang.Class)"
+    ],
+    [
+        "com.montanha.security.utils.JwtTokenUtil.tokenValido:boolean(java.lang.String)",
+        "com.montanha.security.utils.JwtTokenUtil.tokenExpirado:boolean(java.lang.String)",
+        "com.montanha.security.utils.JwtTokenUtil.getExpirationDateFromToken:java.util.Date(java.lang.String)",
+        "com.montanha.security.utils.JwtTokenUtil.getClaimsFromToken:io.jsonwebtoken.Claims(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws:io.jsonwebtoken.Jws(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parse:java.lang.Object(java.lang.String,io.jsonwebtoken.JwtHandler)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.parse:io.jsonwebtoken.Jwt(java.lang.String)",
+        "io.jsonwebtoken.impl.DefaultJwtParser.readValue:java.util.Map(java.lang.String)",
+        "com.fasterxml.jackson.databind.ObjectMapper.readValue:java.lang.Object(java.lang.String,java.lang.Class)"
+    ]
+]

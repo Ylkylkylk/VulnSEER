@@ -1,0 +1,6 @@
+[
+    [
+        "com.dumptruckman.bukkit.configuration.json.JsonConfiguration.loadFromString:void(java.lang.String)",
+        "net.minidev.json.parser.JSONParser.parse:java.lang.Object(java.lang.String)"
+    ]
+]

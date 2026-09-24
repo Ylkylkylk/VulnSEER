@@ -1,0 +1,6 @@
+[
+    [
+        "zing.client.file.ZFile.<init>:void(java.io.File,java.lang.String)",
+        "net.lingala.zip4j.ZipFile.<init>:void(java.io.File)"
+    ]
+]

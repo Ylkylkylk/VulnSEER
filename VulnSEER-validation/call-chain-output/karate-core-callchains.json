@@ -1,0 +1,6 @@
+[
+    [
+        "com.intuit.karate.JsonUtils.toStrictJson:java.lang.String(java.lang.String)",
+        "net.minidev.json.parser.JSONParser.parse:java.lang.Object(java.lang.String)"
+    ]
+]

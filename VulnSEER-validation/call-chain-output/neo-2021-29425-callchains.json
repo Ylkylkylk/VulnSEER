@@ -1,0 +1,30 @@
+[
+    [
+        "com.sangupta.neo.cache.CacheUtils.resovleTemplatePath:com.sangupta.neo.cache.ProjectTemplate(java.lang.String)",
+        "com.sangupta.jerry.util.FileUtils.resolveToFile:java.io.File(java.lang.String)",
+        "org.apache.commons.io.FilenameUtils.normalize:java.lang.String(java.lang.String)"
+    ],
+    [
+        "com.sangupta.neo.commands.InstallTemplate.execute:void()",
+        "com.sangupta.jerry.util.FileUtils.resolveToFile:java.io.File(java.lang.String)",
+        "org.apache.commons.io.FilenameUtils.normalize:java.lang.String(java.lang.String)"
+    ],
+    [
+        "com.sangupta.neo.commands.DownloadTemplate.run:void()",
+        "com.sangupta.neo.cache.CacheUtils.resovleTemplatePath:com.sangupta.neo.cache.ProjectTemplate(java.lang.String)",
+        "com.sangupta.jerry.util.FileUtils.resolveToFile:java.io.File(java.lang.String)",
+        "org.apache.commons.io.FilenameUtils.normalize:java.lang.String(java.lang.String)"
+    ],
+    [
+        "com.sangupta.neo.commands.InstallTemplate.run:void()",
+        "com.sangupta.neo.commands.InstallTemplate.execute:void()",
+        "com.sangupta.jerry.util.FileUtils.resolveToFile:java.io.File(java.lang.String)",
+        "org.apache.commons.io.FilenameUtils.normalize:java.lang.String(java.lang.String)"
+    ],
+    [
+        "com.sangupta.neo.commands.CreateProject.run:void()",
+        "com.sangupta.neo.cache.CacheUtils.resovleTemplatePath:com.sangupta.neo.cache.ProjectTemplate(java.lang.String)",
+        "com.sangupta.jerry.util.FileUtils.resolveToFile:java.io.File(java.lang.String)",
+        "org.apache.commons.io.FilenameUtils.normalize:java.lang.String(java.lang.String)"
+    ]
+]

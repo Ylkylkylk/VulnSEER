@@ -1,0 +1,480 @@
+[
+    [
+        "<com.github.peterbencze.serritor.api.helper.JsonReaderWriter: java.lang.Object readJsonMessage(java.lang.String,java.lang.Class)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.HttpHost determineTarget(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.AbstractHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.DefaultRequestDirector: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.AbstractHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.DefaultRequestDirector: org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.DefaultRequestDirector: org.apache.http.impl.client.RoutedRequest handleResponse(org.apache.http.impl.client.RoutedRequest,org.apache.http.HttpResponse,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.RetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void downloadFile(java.net.URI,java.io.File)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.InternalHttpClient: org.apache.http.client.methods.CloseableHttpResponse doExecute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.execchain.ServiceUnavailableRetryExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.BackoffStrategyExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.ProtocolExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.impl.execchain.RedirectExec: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.conn.routing.HttpRoute,org.apache.http.client.methods.HttpRequestWrapper,org.apache.http.client.protocol.HttpClientContext,org.apache.http.client.methods.HttpExecutionAware)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void resume()>",
+        "<com.github.peterbencze.serritor.api.Crawler: void resume(com.github.peterbencze.serritor.api.Browser)>",
+        "<com.github.peterbencze.serritor.api.Crawler: void resume(com.github.peterbencze.serritor.api.Browser,org.openqa.selenium.remote.DesiredCapabilities)>",
+        "<com.github.peterbencze.serritor.api.Crawler: void start(com.github.peterbencze.serritor.api.Browser,org.openqa.selenium.MutableCapabilities,boolean)>",
+        "<com.github.peterbencze.serritor.api.Crawler: void run()>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.HttpHost determineTarget(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ],
+    [
+        "<com.github.peterbencze.serritor.api.Crawler: void start()>",
+        "<com.github.peterbencze.serritor.api.Crawler: void start(com.github.peterbencze.serritor.api.Browser)>",
+        "<com.github.peterbencze.serritor.api.Crawler: void start(com.github.peterbencze.serritor.api.Browser,org.openqa.selenium.MutableCapabilities)>",
+        "<com.github.peterbencze.serritor.api.Crawler: void start(com.github.peterbencze.serritor.api.Browser,org.openqa.selenium.MutableCapabilities,boolean)>",
+        "<com.github.peterbencze.serritor.api.Crawler: void run()>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.client.methods.CloseableHttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>",
+        "<org.apache.http.impl.client.CloseableHttpClient: org.apache.http.HttpHost determineTarget(org.apache.http.client.methods.HttpUriRequest)>",
+        "<org.apache.http.client.utils.URIUtils: org.apache.http.HttpHost extractHost(java.net.URI)>"
+    ]
+]

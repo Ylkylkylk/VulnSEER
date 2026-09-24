@@ -1,0 +1,10 @@
+[
+    [
+        "com.project.controller.MainRestController.register:org.springframework.web.servlet.ModelAndView(javax.servlet.http.HttpServletResponse,java.lang.String)",
+        "net.minidev.json.parser.JSONParser.parse:java.lang.Object(java.lang.String)"
+    ],
+    [
+        "com.project.controller.MainRestController.login:org.springframework.web.servlet.ModelAndView(javax.servlet.http.HttpServletResponse,java.lang.String)",
+        "net.minidev.json.parser.JSONParser.parse:java.lang.Object(java.lang.String)"
+    ]
+]

@@ -1,0 +1,345 @@
+VulnSEER Prompt Inventory
+=========================
+
+
+prompt1: Sink-Level Exploit Requirement Extraction
+--------------------------------------------------
+Purpose: Read one Java exploit sketch/testcase and generalize the constraints that the vulnerable sink method must receive.
+
+User prompt:
+You are a senior vulnerability researcher.
+Your task is to analyze a Java sink-level exploit sketch and extract the generalized sink requirement for the vulnerable sink method.
+
+=== Sink Method ===
+{sink_method}
+
+=== Sink-Level Exploit Sketch Source Code ===
+```java
+{testcase_code}
+```
+
+=== Task Instructions ===
+Analyze how the exploit sketch constructs the malicious input to trigger the vulnerability.
+The provided sketch only represents ONE specific instance of the exploit. You must GENERALIZE the payload.
+Abstract the core malicious characteristics required to trigger the vulnerability class rather than copying exact hardcoded strings.
+
+=== OUTPUT FORMAT ===
+You MUST return a SINGLE valid JSON object representing the constraints for the sink method's parameters.
+Rules:
+- Do NOT include any explanation
+- Do NOT include markdown
+- Do NOT include ```json
+- Output must start with '{' and end with '}'
+- Even if unsure, return a valid JSON
+Failure to follow this will break the system.
+The JSON schema MUST follow this exact format (do NOT add extra keys outside of arg0, arg1, etc.):
+{
+  "arg0": {
+    "type": "[Fully qualified Java type, e.g., java.lang.String]",
+    "placeholder": "<SINK_ARG0>",
+    "description": "[Generalized description of the malicious payload characteristics based on the testcase]"
+  }
+}
+
+
+prompt2: Backward Layer Goal Inference
+--------------------------------------
+Purpose: Infer caller-side preconditions and candidate inputs that make the next routine satisfy
+the downstream exploit requirement.
+
+User prompt:
+You are a symbolic execution engine for Java.
+You perform Hoare-logic style reasoning for a single step in a call chain.
+
+=== Current Layer ===
+Caller method (fi): {caller}
+Callee method (fi-1): {callee}
+
+=== Caller Parameters ===
+The caller method fi has {num_params} parameter(s).
+  - arg0: {param0_name} ({param0_type})
+  - ...
+
+=== Method Source Code ===
+{source_code}
+
+=== Helper Methods Source (Internal) ===
+{helpers}
+
+=== Class Context (Constructors & Constants) ===
+{class_context}
+
+=== Callee Invocation Requirement ===
+To continue the execution down the chain, the callee (fi-1) must be invoked.
+The callee requires the following conditions (from the layer below):
+{callee_requirement_json}
+
+For the lowest layer, the prompt additionally includes:
+=== Sink-Level Requirement ===
+This is the lowest layer (vulnerable sink).
+An exploit sketch has been extracted. The vulnerable sink must receive the following arguments:
+{callee_requirement_json}
+When you want fi-1 to receive exactly the same runtime object as in the exploit sketch,
+you MUST use the placeholder string "<SINK_ARGi>" in candidate_inputs.args...
+
+=== Your Goals & Reasoning Process ===
+1. Analyze the helper methods and class context above.
+2. Infer caller-level preconditions such that fi will invoke fi-1 with arguments satisfying the above constraints.
+3. If a field is an interface, identify a concrete implementation and construct its structure in JSON.
+
+=== OUTPUT FORMAT ===
+You MUST return a SINGLE valid JSON object:
+{
+  "caller_precondition": ["...", "..."],
+  "candidate_inputs": [
+    {"args": ["arg0_value", "arg1_value"]}
+  ]
+}
+
+=== Constraints ===
+- The output MUST be valid JSON.
+- Do NOT use code expressions such as constructors or method calls.
+- Each argument in "args" MUST be a plain JSON literal.
+- For object/reference-type arguments whose exact internal state is not important, use a
+  Java-runtime-style instance string such as "java.lang.Object@16e48ada" instead of code
+  expressions like "new java.lang.Object()".
+- Do NOT use structured typed placeholder objects such as
+  {"@type": "java.lang.Object", "@constraint": "any_non_null_instance"}.
+- If the value only needs to be a non-null instance of a Java reference type, prefer a plausible
+  concrete runtime-style string, for example:
+  - "java.lang.Object@16e48ada"
+  - "java.util.HashMap@1a2b3c4d"
+  - "com.example.MyBean@4f3f5b24"
+- The args array must contain exactly {num_params} values in parameter order.
+- If the caller has 0 parameters, args must be [].
+- Internal fields/configuration must be expressed only in caller_precondition.
+- To reuse the exact sink argument object, use "<SINK_ARG0>", "<SINK_ARG1>", etc.
+
+
+prompt3: Main-Pipeline Exploit-State Resolution
+-----------------------------------------------
+Purpose: Resolve concrete entry arguments and object-field state while propagating the sink
+requirement through the chain.
+
+User prompt:
+You are a symbolic execution engine for Java.
+We are analyzing LAYER INDEX {layer_idx} of the call chain.
+Method signature: {current_method}
+Next method: {next_method}
+
+=== Parameters ===
+{param_list}
+
+=== Method Source Code ===
+{source_code}
+
+=== Helper Methods Source (Selected by Selector) ===
+{helpers}
+
+=== Class Context (Selected by Selector) ===
+{class_context}
+
+=== Sink-Level Requirement ===
+{sink_requirement_json}
+
+=== Execution State from Previous (Higher) Layers ===
+{previous_layers_results_json_or_None}
+
+=== Layer Exploit Goal ===
+{layer_goal_json}
+
+=== Critical Guidelines ===
+1. If you have enough information, you MUST generate concrete payload values. Do NOT emit placeholders like <SINK_ARG0> in the final answer.
+2. Never use Java code expressions, constructors, or method calls in arg_values or field_values.
+3. Maintain consistency with previous layer states.
+4. If a value is still abstract, output the most concrete malicious value you can infer from sink-level constraints and local semantics.
+5. For object/reference-type parameters whose exact internal content is not important, prefer a Java runtime object-instance style string such as "java.lang.Object@16e48ada".
+6. Do NOT output structured typed placeholder objects.
+7. If the current method has 0 parameters, "arg_values" MUST be {}.
+8. Do NOT invent arg0/arg1/... keys that do not exist in the current method signature.
+9. If a downstream call requires additional values (for example a property name such as
+   "class"), put them in field_values when they belong to internal selector/configuration state,
+   not in arg_values.
+10. When parameters exist and one can be any value satisfying the required Java type and basic semantic
+    constraints, do NOT invent fake Java code expressions such as "new java.lang.Object()",
+    "new HashMap<>()", or "someMethodCall()".
+11. In such cases, prefer a Java-runtime-style concrete instance string, for example:
+    "java.lang.Object@16e48ada", "java.util.HashMap@1a2b3c4d", or
+    "com.example.MyBean@4f3f5b24".
+12. The value should look like a plausible runtime object instance identifier, not source code and
+    not a typed JSON schema object.
+13. Use this runtime-style object string only when the exact internal state of the object is not
+    important for triggering the sink. If the exploit depends on specific internal fields, express
+    those requirements in field_values instead.
+- arg_values may only contain keys that exist in the current method signature.
+- Values belonging to receiver state, internal configuration, map/list content, wrappers, requests,
+  or other heap-like state belong in field_values.
+
+=== Output JSON Schema ===
+{
+  "status": "resolved",
+  "description": "<included only for layer 0: explanation of how the entry payload triggers the vulnerability>",
+  "arg_values": {"arg0": "<concrete value>"},
+  "field_values": {"fieldName1": "<concrete value>"}
+}
+
+
+prompt4: Selector-Training Exploit-State Resolution
+---------------------------------------------------
+Purpose: Same state-resolution task as prompt3, but the selector-training pipeline explicitly allows the solver to request missing context from the RL agent.
+
+User prompt:
+You are a symbolic execution engine for Java.
+We are analyzing LAYER INDEX {layer_idx} of the call chain.
+Method signature: {current_method}
+
+=== Parameters ===
+{param_list}
+
+=== Method Source Code ===
+{source_code}
+
+=== Helper Methods Source (Selected by RL Agent) ===
+{helpers}
+
+=== Class Context (Selected by RL Agent) ===
+{class_context}
+
+=== Sink-Level Requirement ===
+The placeholders like <SINK_ARG0> originate from these root constraints at the vulnerable sink:
+{sink_requirement_json}
+
+=== Execution State from Previous (Higher) Layers ===
+These are the parameter values and field states already determined by the layers above the current one.
+You must maintain consistency with these states:
+{previous_layers_results_json_or_None}
+
+=== Layer Exploit Goal ===
+{layer_goal_json}
+
+=== Critical Reasoning & Action Guidelines ===
+You must analyze if you can fully determine the required parameters and hidden fields to reach the Goal.
+1. Request Help if Stuck: If an implicit variable, field (for example this.config), or parameter has
+   unknown initialization and blocks reasoning, request help from the RL Agent.
+2. Instantiate Concrete Values (NO PLACEHOLDERS): Generate realistic concrete malicious payloads when
+   enough information is available. Do not output <SINK_ARG0>.
+3. Ensure consistency with the execution state from previous layers.
+
+=== Output JSON Schema ===
+{
+  "status": "resolved",
+  "description": "<included only for layer 0>",
+  "arg_values": {"arg0": "<concrete value, no placeholders>"},
+  "field_values": {"fieldName1": "<concrete value>"}
+}
+
+
+prompt5: Context-Candidate Selection
+------------------------------------
+Purpose: Decide whether one helper/field/constant/constructor item should be included in the
+solver context. This template is used by the CausalLM selector and by selector-training scripts.
+
+Prompt:
+You are a context-selection agent in a vulnerability reasoning pipeline.
+
+Task:
+Decide whether the current candidate context item should be INCLUDED in the solver prompt.
+
+Action Space:
+- Output 1: include this item
+- Output 0: exclude this item
+
+Decision Objective:
+Select as little context as possible, but keep the most useful evidence for recovering hidden variable origins, constructor effects, constant values, and vulnerability-relevant data flow.
+
+[Current Layer Index]
+{layer_index_or_unknown}
+
+[Current Goal]
+{layer_goal_json}
+
+[Candidate Metadata]
+Source Type: {source_type}
+Name: {candidate_name}
+Signature: {candidate_signature}
+Priority Hint: {priority_hint}
+Estimated New Tokens If Included: {candidate_token_est}
+
+[Candidate Content]
+{candidate_content}
+
+[Current Method Code]
+```java
+{method_code}
+
+[Selected Context Budget Status]
+{selected_summary_json}
+
+Decision Heuristics:
+1.Prefer INCLUDE if this item is likely to reveal:
+(1)field initialization
+(2)constructor side effects
+(3)constant propagation
+(4)argument transformation
+(5)branch conditions affecting vulnerability trigger
+2.Prefer EXCLUDE if this item is:
+(1)boilerplate
+(2)repeated utility code
+(3)generic logging / printing / glue code
+(4)unlikely to determine hidden values
+
+Output exactly one character:
+0 or 1
+
+
+prompt6: GPT Binary Context Selector
+------------------------------------
+Purpose: The Responses API version of context selection. It returns one character, 1 to include
+the candidate or 0 to exclude it.
+
+Prompt:
+You are a binary selector for vulnerability reasoning context selection.
+Return exactly one character: 1 or 0.
+1 means include this candidate item.
+0 means exclude this candidate item.
+
+Prefer including information that directly helps satisfy constraints, instantiate variables, recover fields/constants/helpers, or build payload-relevant objects.
+Exclude redundant, generic, irrelevant, or obviously low-value context.
+
+Layer Goal:
+{layer_goal_json}
+
+Candidate Item:
+{candidate_item_json}
+
+Already Selected:
+{already_selected_json}
+
+Current Method Code:
+{method_code}
+
+
+prompt7: CodeBERT / Qwen Binary-Selector Input
+----------------------------------------------
+Purpose: Build the text input used by the CodeBERT and Qwen-LoRA binary classifiers. This is a
+model prompt/input template.
+
+Prompt:
+Current Code:
+{method_code}
+
+Layer Goal:
+{layer_goal_json}
+
+Already Selected:
+{already_selected_json}
+
+Candidate Type:
+{candidate_source_type}
+
+Candidate Signature:
+{candidate_signature}
+
+Candidate Content:
+{candidate_content}
+

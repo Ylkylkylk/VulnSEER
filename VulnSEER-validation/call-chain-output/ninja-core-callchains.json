@@ -1,0 +1,16 @@
+[
+    [
+        "ninja.AssetsControllerHelper.normalizePathWithoutLeadingSlash:java.lang.String(java.lang.String,boolean)",
+        "org.apache.commons.io.FilenameUtils.normalize:java.lang.String(java.lang.String)"
+    ],
+    [
+        "ninja.AssetsController.getStaticFileFromAssetsDir:java.net.URL(java.lang.String)",
+        "ninja.AssetsControllerHelper.normalizePathWithoutLeadingSlash:java.lang.String(java.lang.String,boolean)",
+        "org.apache.commons.io.FilenameUtils.normalize:java.lang.String(java.lang.String)"
+    ],
+    [
+        "ninja.AssetsController.getStaticFileFromMetaInfResourcesDir:java.net.URL(java.lang.String)",
+        "ninja.AssetsControllerHelper.normalizePathWithoutLeadingSlash:java.lang.String(java.lang.String,boolean)",
+        "org.apache.commons.io.FilenameUtils.normalize:java.lang.String(java.lang.String)"
+    ]
+]

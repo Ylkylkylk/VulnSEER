@@ -1,0 +1,24 @@
+[
+    [
+        "se.yolean.kafka.keyvalue.onupdate.hc.UpdateTarget.<init>:void(java.lang.String)",
+        "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)"
+    ],
+    [
+        "se.yolean.kafka.keyvalue.onupdate.hc.UpdatesDispatcherHttp.<init>:void(java.lang.String,se.yolean.kafka.keyvalue.onupdate.hc.RetryDecisions)",
+        "se.yolean.kafka.keyvalue.onupdate.hc.UpdateTarget.<init>:void(java.lang.String)",
+        "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)"
+    ],
+    [
+        "se.yolean.kafka.keyvalue.onupdate.hc.DispatcherConfigHttpclient.getDispatcher:se.yolean.kafka.keyvalue.onupdate.UpdatesDispatcher(java.lang.String)",
+        "se.yolean.kafka.keyvalue.onupdate.hc.UpdatesDispatcherHttp.<init>:void(java.lang.String,se.yolean.kafka.keyvalue.onupdate.hc.RetryDecisions)",
+        "se.yolean.kafka.keyvalue.onupdate.hc.UpdateTarget.<init>:void(java.lang.String)",
+        "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)"
+    ],
+    [
+        "se.yolean.kafka.keyvalue.onupdate.OnUpdateForwarder.updateDispatchersFromConfig:void()",
+        "se.yolean.kafka.keyvalue.onupdate.hc.DispatcherConfigHttpclient.getDispatcher:se.yolean.kafka.keyvalue.onupdate.UpdatesDispatcher(java.lang.String)",
+        "se.yolean.kafka.keyvalue.onupdate.hc.UpdatesDispatcherHttp.<init>:void(java.lang.String,se.yolean.kafka.keyvalue.onupdate.hc.RetryDecisions)",
+        "se.yolean.kafka.keyvalue.onupdate.hc.UpdateTarget.<init>:void(java.lang.String)",
+        "org.apache.http.client.utils.URIUtils.extractHost:org.apache.http.HttpHost(java.net.URI)"
+    ]
+]

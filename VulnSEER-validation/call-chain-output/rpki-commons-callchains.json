@@ -1,0 +1,36 @@
+[
+    [
+        "<net.ripe.rpki.commons.provisioning.identity.ParentIdentitySerializer: java.lang.Object deserialize(java.lang.String)>",
+        "<net.ripe.rpki.commons.provisioning.identity.ParentIdentitySerializer: net.ripe.rpki.commons.provisioning.identity.ParentIdentity deserialize(java.lang.String)>",
+        "<com.thoughtworks.xstream.XStream: java.lang.Object fromXML(java.lang.String)>"
+    ],
+    [
+        "<net.ripe.rpki.commons.provisioning.identity.ChildIdentitySerializer: java.lang.Object deserialize(java.lang.String)>",
+        "<net.ripe.rpki.commons.provisioning.identity.ChildIdentitySerializer: net.ripe.rpki.commons.provisioning.identity.ChildIdentity deserialize(java.lang.String)>",
+        "<com.thoughtworks.xstream.XStream: java.lang.Object fromXML(java.lang.String)>"
+    ],
+    [
+        "<net.ripe.rpki.commons.provisioning.serialization.ProvisioningCmsObjectXstreamConverter: java.lang.Object unmarshal(com.thoughtworks.xstream.io.HierarchicalStreamReader,com.thoughtworks.xstream.converters.UnmarshallingContext)>",
+        "<net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObjectParser: void parseCms(java.lang.String,byte[])>",
+        "<net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObjectParser: void parseContent()>",
+        "<net.ripe.rpki.commons.provisioning.payload.PayloadParser: net.ripe.rpki.commons.provisioning.payload.AbstractProvisioningPayload parse(java.lang.String,net.ripe.rpki.commons.validation.ValidationResult)>",
+        "<net.ripe.rpki.commons.xml.XStreamXmlSerializer: java.lang.Object deserialize(java.lang.String)>",
+        "<com.thoughtworks.xstream.XStream: java.lang.Object fromXML(java.lang.String)>"
+    ],
+    [
+        "<net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObjectValidator: void validate(net.ripe.rpki.commons.validation.ValidationResult)>",
+        "<net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObjectParser: void parseCms(java.lang.String,byte[])>",
+        "<net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObjectParser: void parseContent()>",
+        "<net.ripe.rpki.commons.provisioning.payload.PayloadParser: net.ripe.rpki.commons.provisioning.payload.AbstractProvisioningPayload parse(java.lang.String,net.ripe.rpki.commons.validation.ValidationResult)>",
+        "<net.ripe.rpki.commons.xml.XStreamXmlSerializer: java.lang.Object deserialize(java.lang.String)>",
+        "<com.thoughtworks.xstream.XStream: java.lang.Object fromXML(java.lang.String)>"
+    ],
+    [
+        "<net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObjectBuilder: net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObject build(java.security.PrivateKey)>",
+        "<net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObjectParser: void parseCms(java.lang.String,byte[])>",
+        "<net.ripe.rpki.commons.provisioning.cms.ProvisioningCmsObjectParser: void parseContent()>",
+        "<net.ripe.rpki.commons.provisioning.payload.PayloadParser: net.ripe.rpki.commons.provisioning.payload.AbstractProvisioningPayload parse(java.lang.String,net.ripe.rpki.commons.validation.ValidationResult)>",
+        "<net.ripe.rpki.commons.xml.XStreamXmlSerializer: java.lang.Object deserialize(java.lang.String)>",
+        "<com.thoughtworks.xstream.XStream: java.lang.Object fromXML(java.lang.String)>"
+    ]
+]

@@ -1,0 +1,18 @@
+[
+    [
+        "live.lumia.utils.XMLUtil.xml2json:java.lang.String(java.lang.String)",
+        "org.json.XML.toJSONObject:org.json.JSONObject(java.lang.String)"
+    ],
+    [
+        "live.lumia.utils.RequestUtils.readData:com.alibaba.fastjson.JSONObject(javax.servlet.ServletInputStream)",
+        "com.alibaba.fastjson.JSON.parseObject:com.alibaba.fastjson.JSONObject(java.lang.String)",
+        "com.alibaba.fastjson.JSON.parse:java.lang.Object(java.lang.String)"
+    ],
+    [
+        "live.lumia.utils.RequestUtils.readData:com.alibaba.fastjson.JSONObject(javax.servlet.ServletInputStream)",
+        "com.alibaba.fastjson.JSON.parseObject:com.alibaba.fastjson.JSONObject(java.lang.String)",
+        "com.alibaba.fastjson.JSON.toJSON:java.lang.Object(java.lang.Object)",
+        "com.alibaba.fastjson.JSON.toJSON:java.lang.Object(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)",
+        "com.alibaba.fastjson.JSON.parse:java.lang.Object(java.lang.String)"
+    ]
+]

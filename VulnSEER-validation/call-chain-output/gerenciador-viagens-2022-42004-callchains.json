@@ -1,0 +1,7 @@
+[
+    [
+        "com.montanha.gerenciador.controller.GerenciadorViagemController.buscar:org.springframework.http.ResponseEntity(java.lang.Long,java.lang.String)",
+        "com.montanha.gerenciador.services.ViagemServices.buscar:com.montanha.gerenciador.dtos.ViagemDtoResponse(java.lang.Long)",
+        "com.fasterxml.jackson.databind.ObjectMapper.readValue:java.lang.Object(java.lang.String,java.lang.Class)"
+    ]
+]

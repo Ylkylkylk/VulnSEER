@@ -1,0 +1,11 @@
+[
+    [
+        "com.xiaoleilu.ucloud.util.HttpRequestUtil.prepareGet:jodd.http.HttpRequest(java.lang.String)",
+        "jodd.http.HttpRequest.get:jodd.http.HttpRequest(java.lang.String)"
+    ],
+    [
+        "com.xiaoleilu.ucloud.ufile.UFile.getFile:java.io.File(java.lang.String,java.lang.String,java.io.File,boolean)",
+        "com.xiaoleilu.ucloud.util.HttpRequestUtil.prepareGet:jodd.http.HttpRequest(java.lang.String)",
+        "jodd.http.HttpRequest.get:jodd.http.HttpRequest(java.lang.String)"
+    ]
+]

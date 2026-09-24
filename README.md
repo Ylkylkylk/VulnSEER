@@ -11,6 +11,7 @@ VulnSEER/
 ├── VulnSEER-validation/          # Java replay-based validation engine and evaluation clients
 ├── requirements.txt              # Python dependencies
 ├── requirement.txt               # Compatibility alias for requirements.txt
+├── prompts.txt                   # Prompt inventory and descriptions used by the source code
 └── README.md
 ```
 

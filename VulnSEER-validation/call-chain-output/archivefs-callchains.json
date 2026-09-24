@@ -1,0 +1,32 @@
+[
+    [
+        "io.mkr.archivefs.archive.ArchiveFactory$1.create:io.mkr.archivefs.archive.cc.CCSeven7ArchiveInputStream()",
+        "org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>:void(java.io.File)"
+    ],
+    [
+        "io.mkr.archivefs.archive.DecoratingCreator.create:java.lang.Object()",
+        "io.mkr.archivefs.archive.ArchiveFactory$1.create:io.mkr.archivefs.archive.cc.CCSeven7ArchiveInputStream()",
+        "org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>:void(java.io.File)"
+    ],
+    [
+        "io.mkr.archivefs.archive.ArchiveFactory$1.create:java.lang.Object()",
+        "io.mkr.archivefs.archive.ArchiveFactory$1.create:io.mkr.archivefs.archive.cc.CCSeven7ArchiveInputStream()",
+        "org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>:void(java.io.File)"
+    ],
+    [
+        "io.mkr.archivefs.archive.StreamingArchive.contentFor:java.io.InputStream(io.mkr.archivefs.archive.ArchiveItem)",
+        "io.mkr.archivefs.archive.ArchiveFactory$1.create:io.mkr.archivefs.archive.cc.CCSeven7ArchiveInputStream()",
+        "org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>:void(java.io.File)"
+    ],
+    [
+        "io.mkr.archivefs.archive.StreamingArchive.readEntries:void()",
+        "io.mkr.archivefs.archive.ArchiveFactory$1.create:io.mkr.archivefs.archive.cc.CCSeven7ArchiveInputStream()",
+        "org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>:void(java.io.File)"
+    ],
+    [
+        "io.mkr.archivefs.archive.StreamingArchive.contentFor:java.io.InputStream(io.mkr.archivefs.archive.ArchiveItem)",
+        "io.mkr.archivefs.archive.DecoratingCreator.create:java.lang.Object()",
+        "io.mkr.archivefs.archive.ArchiveFactory$1.create:io.mkr.archivefs.archive.cc.CCSeven7ArchiveInputStream()",
+        "org.apache.commons.compress.archivers.sevenz.SevenZFile.<init>:void(java.io.File)"
+    ]
+]

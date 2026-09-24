@@ -1,0 +1,565 @@
+[
+    [
+        "<com.ruoyi.project.system.controller.SysProfileController: com.ruoyi.framework.web.domain.AjaxResult updatePwd(java.lang.String,java.lang.String)>",
+        "<com.ruoyi.common.utils.SecurityUtils: boolean matchesPassword(java.lang.String,java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SelfcomUserController: com.ruoyi.framework.web.domain.AjaxResult add(com.ruoyi.project.system.domain.SysUser)>",
+        "<com.ruoyi.common.utils.SecurityUtils: java.lang.String encryptPassword(java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SelfcomUserController: com.ruoyi.framework.web.domain.AjaxResult resetPwd(com.ruoyi.project.system.domain.SysUser)>",
+        "<com.ruoyi.common.utils.SecurityUtils: java.lang.String encryptPassword(java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysProfileController: com.ruoyi.framework.web.domain.AjaxResult updatePwd(java.lang.String,java.lang.String)>",
+        "<com.ruoyi.common.utils.SecurityUtils: java.lang.String encryptPassword(java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: com.ruoyi.framework.web.domain.AjaxResult editSave(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void validateEdit(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.framework.manager.factory.AsyncFactory$2: void run()>",
+        "<com.ruoyi.common.utils.ip.AddressUtils: java.lang.String getRealAddressByIP(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.framework.manager.factory.AsyncFactory$1: void run()>",
+        "<com.ruoyi.common.utils.ip.AddressUtils: java.lang.String getRealAddressByIP(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SelfcomUserController: com.ruoyi.framework.web.domain.AjaxResult importData(org.springframework.web.multipart.MultipartFile,boolean)>",
+        "<com.ruoyi.project.system.service.impl.SysUserServiceImpl: java.lang.String importUser(java.util.List,java.lang.Boolean,java.lang.String)>",
+        "<com.ruoyi.common.utils.SecurityUtils: java.lang.String encryptPassword(java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.framework.aspectj.LogAspect: void setRequestValue(org.aspectj.lang.JoinPoint,com.ruoyi.project.monitor.domain.SysOperLog)>",
+        "<com.ruoyi.framework.aspectj.LogAspect: java.lang.String argsArrayToString(java.lang.Object[])>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: com.ruoyi.framework.web.domain.AjaxResult getInfo(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: com.ruoyi.project.tool.gen.domain.GenTable selectGenTableById(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void setTableFromOptions(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysCompanyController: com.ruoyi.framework.web.domain.AjaxResult add(com.ruoyi.project.system.domain.SysCompany)>",
+        "<com.ruoyi.project.system.service.impl.SysCompanyServiceImpl: int insertSysCompany(com.ruoyi.project.system.domain.SysCompany)>",
+        "<com.ruoyi.project.system.service.impl.SysCompanyServiceImpl: java.lang.Integer addDefaultUser(com.ruoyi.project.system.domain.SysCompany)>",
+        "<com.ruoyi.common.utils.SecurityUtils: java.lang.String encryptPassword(java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void additionalAuthenticationChecks(org.springframework.security.core.userdetails.UserDetails,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: com.ruoyi.framework.web.domain.AjaxResult editSave(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void validateEdit(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.framework.manager.factory.AsyncFactory$2: void run()>",
+        "<com.ruoyi.common.utils.ip.AddressUtils: java.lang.String getRealAddressByIP(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.framework.manager.factory.AsyncFactory$1: void run()>",
+        "<com.ruoyi.common.utils.ip.AddressUtils: java.lang.String getRealAddressByIP(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: com.ruoyi.framework.web.domain.AjaxResult preview(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: java.util.Map previewCode(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.Authentication createSuccessAuthentication(java.lang.Object,org.springframework.security.core.Authentication,org.springframework.security.core.userdetails.UserDetails)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.userdetails.UserDetails retrieveUser(java.lang.String,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void mitigateAgainstTimingAttack(org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.config.method.GlobalMethodSecurityBeanDefinitionParser$AuthenticationManagerDelegator: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void additionalAuthenticationChecks(org.springframework.security.core.userdetails.UserDetails,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void additionalAuthenticationChecks(org.springframework.security.core.userdetails.UserDetails,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.crypto.password.DelegatingPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: com.ruoyi.framework.web.domain.AjaxResult getInfo(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: com.ruoyi.project.tool.gen.domain.GenTable selectGenTableById(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void setTableFromOptions(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: java.lang.String createToken(com.ruoyi.framework.security.LoginUser)>",
+        "<com.ruoyi.framework.security.service.TokenService: void setUserAgent(com.ruoyi.framework.security.LoginUser)>",
+        "<com.ruoyi.common.utils.ip.AddressUtils: java.lang.String getRealAddressByIP(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: com.ruoyi.framework.web.domain.AjaxResult preview(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: java.util.Map previewCode(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: int getExpandColumn(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: void genCode(javax.servlet.http.HttpServletResponse,java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: byte[] generatorCode(java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void generatorCode(java.lang.String,java.util.zip.ZipOutputStream)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: void batchGenCode(javax.servlet.http.HttpServletResponse,java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: byte[] generatorCode(java.lang.String[])>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void generatorCode(java.lang.String,java.util.zip.ZipOutputStream)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.config.method.GlobalMethodSecurityBeanDefinitionParser$AuthenticationManagerDelegator: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.Authentication createSuccessAuthentication(java.lang.Object,org.springframework.security.core.Authentication,org.springframework.security.core.userdetails.UserDetails)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.Authentication createSuccessAuthentication(java.lang.Object,org.springframework.security.core.Authentication,org.springframework.security.core.userdetails.UserDetails)>",
+        "<org.springframework.security.crypto.password.DelegatingPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.userdetails.UserDetails retrieveUser(java.lang.String,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void prepareTimingAttackProtection()>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.framework.security.service.TokenService: java.lang.String getUsernameFromToken(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.config.method.GlobalMethodSecurityBeanDefinitionParser$AuthenticationManagerDelegator: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.userdetails.UserDetails retrieveUser(java.lang.String,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void mitigateAgainstTimingAttack(org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.userdetails.UserDetails retrieveUser(java.lang.String,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void mitigateAgainstTimingAttack(org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.crypto.password.DelegatingPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.config.method.GlobalMethodSecurityBeanDefinitionParser$AuthenticationManagerDelegator: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void additionalAuthenticationChecks(org.springframework.security.core.userdetails.UserDetails,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.crypto.password.DelegatingPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: com.ruoyi.framework.web.domain.AjaxResult preview(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: java.util.Map previewCode(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: void genCode(javax.servlet.http.HttpServletResponse,java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: byte[] generatorCode(java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void generatorCode(java.lang.String,java.util.zip.ZipOutputStream)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: int getExpandColumn(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: void batchGenCode(javax.servlet.http.HttpServletResponse,java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: byte[] generatorCode(java.lang.String[])>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void generatorCode(java.lang.String,java.util.zip.ZipOutputStream)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: int getExpandColumn(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.framework.config.FastJson2JsonRedisSerializer: byte[] serialize(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.String toJSONString(java.lang.Object,com.alibaba.fastjson.serializer.SerializerFeature[])>",
+        "<com.alibaba.fastjson.JSON: java.lang.String toJSONString(java.lang.Object,int,com.alibaba.fastjson.serializer.SerializerFeature[])>",
+        "<com.alibaba.fastjson.serializer.JSONSerializer: void write(java.lang.Object)>",
+        "<com.alibaba.fastjson.serializer.JavaBeanSerializer: void write(com.alibaba.fastjson.serializer.JSONSerializer,java.lang.Object,java.lang.Object,java.lang.reflect.Type,int)>",
+        "<com.alibaba.fastjson.serializer.JavaBeanSerializer: void write(com.alibaba.fastjson.serializer.JSONSerializer,java.lang.Object,java.lang.Object,java.lang.reflect.Type,int,boolean)>",
+        "<com.alibaba.fastjson.serializer.SerializeFilterable: java.lang.Object processValue(com.alibaba.fastjson.serializer.JSONSerializer,com.alibaba.fastjson.serializer.BeanContext,java.lang.Object,java.lang.String,java.lang.Object,int)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.config.method.GlobalMethodSecurityBeanDefinitionParser$AuthenticationManagerDelegator: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.Authentication createSuccessAuthentication(java.lang.Object,org.springframework.security.core.Authentication,org.springframework.security.core.userdetails.UserDetails)>",
+        "<org.springframework.security.crypto.password.DelegatingPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.userdetails.UserDetails retrieveUser(java.lang.String,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void prepareTimingAttackProtection()>",
+        "<org.springframework.security.crypto.password.DelegatingPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.config.method.GlobalMethodSecurityBeanDefinitionParser$AuthenticationManagerDelegator: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.userdetails.UserDetails retrieveUser(java.lang.String,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void prepareTimingAttackProtection()>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysProfileController: com.ruoyi.framework.web.domain.AjaxResult avatar(org.springframework.web.multipart.MultipartFile)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysProfileController: com.ruoyi.framework.web.domain.AjaxResult updatePwd(java.lang.String,java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.security.filter.JwtAuthenticationTokenFilter: void doFilterInternal(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.servlet.FilterChain)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.security.service.PermissionService: boolean hasAnyPermi(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SelfcomUserController: com.ruoyi.framework.web.domain.AjaxResult importData(org.springframework.web.multipart.MultipartFile,boolean)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.security.handle.LogoutSuccessHandlerImpl: void onLogoutSuccess(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.security.core.Authentication)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysProfileController: com.ruoyi.framework.web.domain.AjaxResult profile()>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult getInfo()>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.security.service.PermissionService: boolean hasAnyRoles(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysProfileController: com.ruoyi.framework.web.domain.AjaxResult updateProfile(com.ruoyi.project.system.domain.SysUser)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult getRouters()>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.config.method.GlobalMethodSecurityBeanDefinitionParser$AuthenticationManagerDelegator: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.userdetails.UserDetails retrieveUser(java.lang.String,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void mitigateAgainstTimingAttack(org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.crypto.password.DelegatingPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: boolean matches(java.lang.CharSequence,java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: java.lang.String createToken(com.ruoyi.framework.security.LoginUser)>",
+        "<com.ruoyi.framework.security.service.TokenService: void setUserAgent(com.ruoyi.framework.security.LoginUser)>",
+        "<com.ruoyi.common.utils.ip.AddressUtils: java.lang.String getRealAddressByIP(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: com.ruoyi.framework.web.domain.AjaxResult preview(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: java.util.Map previewCode(java.lang.Long)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: int getExpandColumn(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: void genCode(javax.servlet.http.HttpServletResponse,java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: byte[] generatorCode(java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void generatorCode(java.lang.String,java.util.zip.ZipOutputStream)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.tool.gen.controller.GenController: void batchGenCode(javax.servlet.http.HttpServletResponse,java.lang.String)>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: byte[] generatorCode(java.lang.String[])>",
+        "<com.ruoyi.project.tool.gen.service.GenTableServiceImpl: void generatorCode(java.lang.String,java.util.zip.ZipOutputStream)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: org.apache.velocity.VelocityContext prepareContext(com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.ruoyi.project.tool.gen.util.VelocityUtils: void setTreeVelocityContext(org.apache.velocity.VelocityContext,com.ruoyi.project.tool.gen.domain.GenTable)>",
+        "<com.alibaba.fastjson.JSON: com.alibaba.fastjson.JSONObject parseObject(java.lang.String)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object toJSON(java.lang.Object,com.alibaba.fastjson.serializer.SerializeConfig)>",
+        "<com.alibaba.fastjson.JSON: java.lang.Object parse(java.lang.String)>"
+    ],
+    [
+        "<com.ruoyi.project.system.controller.SysLoginController: com.ruoyi.framework.web.domain.AjaxResult login(com.ruoyi.framework.security.LoginBody)>",
+        "<com.ruoyi.framework.security.service.SysLoginService: java.lang.String login(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>",
+        "<org.springframework.security.config.method.GlobalMethodSecurityBeanDefinitionParser$AuthenticationManagerDelegator: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.ProviderManager: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider: org.springframework.security.core.Authentication authenticate(org.springframework.security.core.Authentication)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: org.springframework.security.core.userdetails.UserDetails retrieveUser(java.lang.String,org.springframework.security.authentication.UsernamePasswordAuthenticationToken)>",
+        "<org.springframework.security.authentication.dao.DaoAuthenticationProvider: void prepareTimingAttackProtection()>",
+        "<org.springframework.security.crypto.password.DelegatingPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>",
+        "<org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder: java.lang.String encode(java.lang.CharSequence)>"
+    ],
+    [
+        "<com.ruoyi.framework.security.service.PermissionService: boolean lacksRole(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.PermissionService: boolean hasRole(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.security.service.PermissionService: boolean hasAnyRoles(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.PermissionService: boolean hasRole(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.aspectj.LogAspect: void doAfterReturning(org.aspectj.lang.JoinPoint,java.lang.Object)>",
+        "<com.ruoyi.framework.aspectj.LogAspect: void handleLog(org.aspectj.lang.JoinPoint,java.lang.Exception,java.lang.Object)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.aspectj.LogAspect: void doAfterThrowing(org.aspectj.lang.JoinPoint,java.lang.Exception)>",
+        "<com.ruoyi.framework.aspectj.LogAspect: void handleLog(org.aspectj.lang.JoinPoint,java.lang.Exception,java.lang.Object)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.aspectj.DataScopeAspect: void doBefore(org.aspectj.lang.JoinPoint)>",
+        "<com.ruoyi.framework.aspectj.DataScopeAspect: void handleDataScope(org.aspectj.lang.JoinPoint)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ],
+    [
+        "<com.ruoyi.framework.security.service.PermissionService: boolean lacksPermi(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.PermissionService: boolean hasPermi(java.lang.String)>",
+        "<com.ruoyi.framework.security.service.TokenService: com.ruoyi.framework.security.LoginUser getLoginUser(javax.servlet.http.HttpServletRequest)>",
+        "<com.ruoyi.framework.security.service.TokenService: io.jsonwebtoken.Claims parseToken(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jws parseClaimsJws(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.lang.Object parse(java.lang.String,io.jsonwebtoken.JwtHandler)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: io.jsonwebtoken.Jwt parse(java.lang.String)>",
+        "<io.jsonwebtoken.impl.DefaultJwtParser: java.util.Map readValue(java.lang.String)>",
+        "<com.fasterxml.jackson.databind.ObjectMapper: java.lang.Object readValue(java.lang.String,java.lang.Class)>"
+    ]
+]

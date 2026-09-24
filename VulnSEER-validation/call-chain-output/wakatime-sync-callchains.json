@@ -1,0 +1,6 @@
+[
+    [
+        "com.wf2311.wakatime.sync.spider.JoddHttpClient.get:java.lang.String(java.lang.String,java.util.Map)",
+        "jodd.http.HttpRequest.get:jodd.http.HttpRequest(java.lang.String)"
+    ]
+]

@@ -1,0 +1,10 @@
+[
+    [
+        "com.ruoyi.common.utils.SecurityUtils.matchesPassword:boolean(java.lang.String,java.lang.String)",
+        "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.matches:boolean(java.lang.CharSequence,java.lang.String)"
+    ],
+    [
+        "com.ruoyi.common.utils.SecurityUtils.encryptPassword:java.lang.String(java.lang.String)",
+        "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.encode:java.lang.String(java.lang.CharSequence)"
+    ]
+]
