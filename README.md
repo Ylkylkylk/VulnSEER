@@ -7,8 +7,24 @@ VulnSEER is an LLM-guided exploit state re-expression with exploit-relevant cont
 ```text
 VulnSEER/
 ├── VulnSEER-main-pipeline/       # CPG processing, call-chain reasoning, and payload generation
+│   ├── run_multi_chain_pipeline.py  # Main payload-generation entry point
+│   ├── policy_selectors/            # Context-selection policies
+│   ├── tools/                       # CPG slicing and payload-processing utilities
+│   ├── client-apps/                 # Java client projects used as pipeline inputs
+│   └── exploit-sketches/            # CVE-specific exploit sketches
 ├── VulnSEER-selector-training/   # RL selector training and ablation selector training scripts
+│   ├── main_train.py                # RL selector training entry point
+│   ├── agent/                       # Policy model components
+│   ├── envs/                        # Training environment and reward shaping
+│   ├── trainer/                     # Selector trainers
+│   ├── configs/                     # Training configurations
+│   └── data/                        # Training and evaluation datasets
 ├── VulnSEER-validation/          # Java replay-based validation engine and evaluation clients
+│   ├── vulnseer-engine/             # Java payload replay and reporting engine
+│   ├── client-apps/                 # Bundled evaluation clients
+│   ├── groundtruth/                 # Vulnerability oracles for upstream libraries
+│   ├── call-chain-output/           # Extracted call-chain JSON files
+│   └── input-example/               # Example validation inputs
 ├── requirements.txt              # Python dependencies
 ├── requirement.txt               # Compatibility alias for requirements.txt
 ├── prompts.txt                   # Prompt inventory and descriptions used by the source code
